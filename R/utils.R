@@ -47,3 +47,14 @@ make_url <- function(url_section,
                     api_key)
   return(api_url)
 }
+
+srs_long_to_wide <- function(.data) {
+  .data <- data.table::melt(.data, id = c("ori",
+                                          "state_abbr",
+                                          "data_year",
+                                          "offense"))
+  .data <- data.table::dcast(.data,
+                             ori + state_abbr + data_year ~ offense + variable,
+                             measure.var = c("value"))
+  return(.data)
+}

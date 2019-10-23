@@ -1,18 +1,22 @@
-api_url <- "https://api.usa.gov/crime/fbi/sapi/api/summarized/agencies/CA0010900/offenses/2010/2016?API_KEY=dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a"
 
 
-
-key <- "dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a"
-data <- get_agency_crime("CA0010900",
-                       1990,
-                       2017,
-                       key)
-
+#' Title
+#'
+#' @param ori
+#' @param start_year
+#' @param end_year
+#' @param api_key
+#' @param offense
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_agency_crime <- function(ori,
-                           start_year,
-                           end_year,
-                           api_key,
-                           offense = "") {
+                             start_year,
+                             end_year,
+                             api_key,
+                             offense = "") {
 
   if (length(offense) > 1 || !offense %in% ucr_crime_categories) {
     stop()
@@ -22,7 +26,7 @@ get_agency_crime <- function(ori,
     offense = "offenses"
   }
 
-  api_url <- paste0(url_start,
+  api_url <- paste0("https://api.usa.gov/crime/fbi/sapi/",
                     "api/summarized/agencies/",
                     ori,
                     "/",
@@ -41,18 +45,5 @@ get_agency_crime <- function(ori,
   return(response)
 }
 
-
-
-
-srs_long_to_wide <- function(.data) {
-  .data <- data.table::melt(.data, id = c("ori",
-                                          "state_abbr",
-                                          "data_year",
-                                          "offense"))
-  .data <- data.table::dcast(.data,
-                             ori + state_abbr + data_year ~ offense + variable,
-                             measure.var = c("value"))
-  return(.data)
-}
 
 

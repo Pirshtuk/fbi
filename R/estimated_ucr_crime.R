@@ -1,9 +1,17 @@
-test <- get_estimated_crime(2010,
-                            2011,
-                            key,
-                            state_abb = "CA",
-                            arson = TRUE)
-
+#' Title
+#'
+#' @param start_year
+#' @param end_year
+#' @param api_key
+#' @param region_name
+#' @param state_abb
+#' @param nation
+#' @param arson
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_estimated_crime <- function(start_year,
                                 end_year,
                                 api_key,

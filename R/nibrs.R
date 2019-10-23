@@ -1,7 +1,3 @@
-z <- get_nibrs_victim(key, state_abb = "SC")
-z2 <- get_nibrs_offender(key, state_abb = "SC")
-z3 <- get_nibrs_offense(key, state_abb = "SC")
-
 get_nibrs <- function(api_key,
                       offense     = "robbery",
                       variable    = "race",
@@ -25,6 +21,20 @@ get_nibrs <- function(api_key,
   return(data)
 }
 
+#' Title
+#'
+#' @param api_key
+#' @param offense
+#' @param variable
+#' @param ori
+#' @param region_name
+#' @param state_abb
+#' @param nation
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_nibrs_victim <- function(api_key,
                              offense     = "robbery",
                              variable    = "race",
@@ -45,6 +55,20 @@ get_nibrs_victim <- function(api_key,
   return(data)
 }
 
+#' Title
+#'
+#' @param api_key
+#' @param offense
+#' @param variable
+#' @param ori
+#' @param region_name
+#' @param state_abb
+#' @param nation
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_nibrs_offender <- function(api_key,
                              offense     = "robbery",
                              variable    = "race",
@@ -65,6 +89,19 @@ get_nibrs_offender <- function(api_key,
   return(data)
 }
 
+#' Title
+#'
+#' @param api_key
+#' @param offense
+#' @param ori
+#' @param region_name
+#' @param state_abb
+#' @param nation
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_nibrs_offense <- function(api_key,
                               offense     = "robbery",
                               ori         = NULL,

@@ -1,7 +1,18 @@
-test <- get_police_employment(start_year = 1990,
-                              end_year = 2011,
-                              api_key = key)
 
+#' Title
+#'
+#' @param start_year
+#' @param end_year
+#' @param api_key
+#' @param ori
+#' @param region_name
+#' @param state_abb
+#' @param nation
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_police_employment <- function(start_year,
                                   end_year,
                                   api_key,
