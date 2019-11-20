@@ -1,5 +1,5 @@
-Package: fbiAPI
-Title: What the Package Does (One Line, Title Case)
+Package: fbi
+Title: A Client for the FBI's Crime Data API <https://crime-data-explorer.fr.cloud.gov/api>.
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Jacob",
@@ -7,7 +7,11 @@ Authors@R:
            role = c("aut", "cre"),
            email = "jkkaplan6@gmail.com",
            comment = c(ORCID = "0000-0002-0601-0387"))
-Description: What the package does (one paragraph).
+Description: Uses the FBI's Crime Data API to get information about crime. 
+    This includes are from the FBI's UCR (including the 'Offenses Known
+    and Clearances by Arrest', 'Arrests by Age, Sex, and Race', 'Supplement 
+    to Return A', 'Law Enforcement Officers Killed and Assaulted' data sets) 
+    and NIBRS data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

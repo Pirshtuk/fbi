@@ -8,6 +8,7 @@ clean_column_names <- function(.data) {
 url_to_dataframe <- function(url) {
   response <- httr::GET(url = paste0(url))
 
+
   if (response$status_code %in% 200) {
     response <- jsonlite::fromJSON(rawToChar(response$content))
     response <- response$results
@@ -35,16 +36,17 @@ combine_url_section <- function(data_type, ori, region_name, state_abb) {
 make_url <- function(url_section,
                      start_year,
                      end_year,
-                     api_key) {
+                     key) {
 
-  api_url <- paste0("https://api.usa.gov/crime/fbi/sapi/api/",
-                    url_section,
-                    "/",
-                    start_year,
-                    "/",
-                    end_year,
-                    "?API_KEY=",
-                    api_key)
+  url <- paste0("https://api.usa.gov/crime/fbi/sapi/api/",
+                url_section,
+                "/",
+                start_year,
+                "/",
+                end_year,
+                "?API_KEY=",
+                key)
+  api_url <- gsub("//", "/", url)
   return(api_url)
 }
 

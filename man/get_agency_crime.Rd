@@ -2,13 +2,20 @@
 % Please edit documentation in R/ucr_crime.R
 \name{get_agency_crime}
 \alias{get_agency_crime}
-\title{Title}
+\title{Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set.}
 \usage{
-get_agency_crime(ori, start_year, end_year, api_key, offense = "")
+get_agency_crime(ori, key)
 }
 \arguments{
-\item{offense}{}
+\item{ori}{A 9-character ORI code (unique agency ID) for the desired agency.}
+
+\item{key}{Crime Data Explorer API key}
 }
 \description{
-Title
+Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set.
 }
+\seealso{
+Other UCR crime functions: \code{\link{get_estimated_arson}},
+  \code{\link{get_estimated_crime}}
+}
+\concept{UCR crime functions}

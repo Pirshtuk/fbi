@@ -4,11 +4,11 @@
 \alias{get_nibrs_offender}
 \title{Title}
 \usage{
-get_nibrs_offender(api_key, offense = "robbery", variable = "race",
-  ori = NULL, region_name = NULL, state_abb = NULL, nation = TRUE)
+get_nibrs_offender(key, offense = "robbery", variable = "race",
+  ori = NULL, region_name = NULL, state_abb = NULL)
 }
 \arguments{
-\item{nation}{}
+\item{state_abb}{}
 }
 \description{
 Title
