@@ -5,7 +5,8 @@
 \title{Get state-, region- or national-level estimated arson data from the UCR's Offenses Known
 and Clearances by Arrest data set.}
 \usage{
-get_estimated_arson(key, state_abb = NULL, region = NULL)
+get_estimated_arson(key = get_api_key(), state_abb = NULL,
+  region = NULL)
 }
 \arguments{
 \item{key}{Crime Data Explorer API key}
@@ -18,6 +19,9 @@ if NULL returns national data. By default will get all state's data.}
 \description{
 Get state-, region- or national-level estimated arson data from the UCR's Offenses Known
 and Clearances by Arrest data set.
+}
+\examples{
+get_estimated_arson("CA")
 }
 \seealso{
 Other UCR crime functions: \code{\link{get_agency_crime}},

@@ -4,8 +4,8 @@
 \alias{get_police_employment}
 \title{Get agency-, state-, region-, or national-level police staffing data.}
 \usage{
-get_police_employment(key, ori = NULL, state_abb = NULL,
-  region = NULL)
+get_police_employment(key = get_api_key(), ori = NULL,
+  state_abb = NULL, region = NULL)
 }
 \arguments{
 \item{key}{Crime Data Explorer API key}

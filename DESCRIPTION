@@ -1,5 +1,5 @@
 Package: fbi
-Title: A Client for the FBI's Crime Data API <https://crime-data-explorer.fr.cloud.gov/api>.
+Title: A Client for the FBI's Crime Data API <https://crime-data-explorer.fr.cloud.gov/api>
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Jacob",
@@ -21,5 +21,7 @@ Suggests:
 Imports: 
     httr,
     jsonlite,
-    data.table
+    data.table,
+    datasets,
+    utils
 RoxygenNote: 6.1.1

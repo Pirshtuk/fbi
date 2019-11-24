@@ -5,17 +5,20 @@
 \title{Get state- or national-level estimated crime counts from the UCR's Offenses Known
 and Clearances by Arrest data set.}
 \usage{
-get_estimated_crime(key, state_abb = NULL)
+get_estimated_crime(state_abb = NULL, key = get_api_key())
 }
 \arguments{
-\item{key}{Crime Data Explorer API key}
-
 \item{state_abb}{String or vector of strings input for state abbreviation(s) to get data for -
 if NULL returns national data. By default will get all state's data.}
+
+\item{key}{}
 }
 \description{
 Get state- or national-level estimated crime counts from the UCR's Offenses Known
 and Clearances by Arrest data set.
+}
+\examples{
+get_estimated_crime("CA")
 }
 \seealso{
 Other UCR crime functions: \code{\link{get_agency_crime}},

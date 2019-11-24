@@ -4,8 +4,9 @@
 \alias{get_nibrs_victim}
 \title{Title}
 \usage{
-get_nibrs_victim(key, offense = "robbery", variable = "race",
-  ori = NULL, region_name = NULL, state_abb = NULL)
+get_nibrs_victim(key = get_api_key(), offense = "robbery",
+  variable = "race", ori = NULL, region_name = NULL,
+  state_abb = NULL)
 }
 \arguments{
 \item{state_abb}{}

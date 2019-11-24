@@ -10,8 +10,9 @@
 #' @export
 #'
 #' @examples
+#' get_agency_crime("AK0010100")
 get_agency_crime <- function(ori,
-                             key) {
+                             key = get_api_key()) {
 
   url <- paste0("https://api.usa.gov/crime/fbi/sapi/",
                 "api/summarized/agencies/",
@@ -36,17 +37,18 @@ get_agency_crime <- function(ori,
 #' @family UCR crime functions
 #' @inheritParams get_agency_crime
 #'
-#' @param key
 #' @param state_abb
 #' String or vector of strings input for state abbreviation(s) to get data for -
 #' if NULL returns national data. By default will get all state's data.
+#' @param key
 #'
 #' @return
 #' @export
 #'
 #' @examples
-get_estimated_crime <- function(key,
-                                state_abb = NULL) {
+#' get_estimated_crime("CA")
+get_estimated_crime <- function(state_abb = NULL,
+                                key = get_api_key()) {
 
   url_section <- combine_url_section("estimates",
                                      ori = NULL,
@@ -58,6 +60,9 @@ get_estimated_crime <- function(key,
   data <- url_to_dataframe(url)
   data <- clean_column_names(data)
   data <- data.table::setorder(data, -year)
+  data$state <- make_state(data$state_abbr)
+  rownames(data) <- 1:nrow(data)
+  data <- data[, c(2, 16, 1, 3, 4:15)]
 
   return(data)
 }
@@ -78,7 +83,8 @@ get_estimated_crime <- function(key,
 #' @export
 #'
 #' @examples
-get_estimated_arson <- function(key,
+#' get_estimated_arson("CA")
+get_estimated_arson <- function(key = get_api_key(),
                                 state_abb = NULL,
                                 region = NULL) {
 

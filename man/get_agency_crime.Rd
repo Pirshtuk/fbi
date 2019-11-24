@@ -4,7 +4,7 @@
 \alias{get_agency_crime}
 \title{Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set.}
 \usage{
-get_agency_crime(ori, key)
+get_agency_crime(ori, key = get_api_key())
 }
 \arguments{
 \item{ori}{A 9-character ORI code (unique agency ID) for the desired agency.}
@@ -13,6 +13,9 @@ get_agency_crime(ori, key)
 }
 \description{
 Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set.
+}
+\examples{
+get_agency_crime("AK0010100")
 }
 \seealso{
 Other UCR crime functions: \code{\link{get_estimated_arson}},

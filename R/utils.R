@@ -1,6 +1,17 @@
+make_state <- function(state_abb) {
+  state <- datasets::state.name[match(tolower(state_abb),
+                                     tolower(datasets::state.abb))]
+  state[tolower(state_abb) == "CZ"] <- "canal zone"
+  state[tolower(state_abb) == "DC"] <- "district of columbia"
+  state[tolower(state_abb) == "GU"] <- "guam"
+  state[tolower(state_abb) == "PR"] <- "puerto rico"
+  return(state)
+}
+
 clean_column_names <- function(.data) {
   names(.data) <- tolower(names(.data))
   names(.data) <- gsub("-", "_", names(.data))
+  names(.data) <- gsub("^data_year$", "year", names(.data))
   return(.data)
 }
 
@@ -16,6 +27,33 @@ url_to_dataframe <- function(url) {
   return(response)
 }
 
+
+prep_ucr_crime_test <- function(file_name) {
+  data <- utils::read.csv(system.file("testdata",
+                                file_name,
+                                package = "fbi"))
+  ori <- strsplit(gsub(".csv", "", file_name), "-")[[1]]
+  crime <- paste0(ori[2:length(ori)], collapse = "_")
+  ori <- ori[1]
+
+  data$Label <- gsub("Reported", "actual", data$Label)
+  data <- data.table::as.data.table(data)
+  data_actual <- data[data$Label == "actual", ]
+  data_clear  <- data[data$Label == "Cleared", ]
+
+  names(data_actual)[2] <- paste0(crime, "_actual")
+  names(data_clear)[2] <- paste0(crime, "_cleared")
+  data_actual$Label <- NULL
+  data_clear$Label <- NULL
+
+  data <- merge(data_actual, data_clear, all = TRUE)
+
+
+  names(data) <- tolower(names(data))
+  data$ori <- ori
+
+  return(data)
+}
 
 combine_url_section <- function(data_type, ori, region_name, state_abb) {
   url_section <- paste0(data_type, "/national")

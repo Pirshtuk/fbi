@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-get_police_employment <- function(key,
+get_police_employment <- function(key = get_api_key(),
                                   ori = NULL,
                                   state_abb = NULL,
                                   region = NULL) {

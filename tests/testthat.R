@@ -1,4 +1,4 @@
 library(testthat)
-library(fbiAPI)
+library(fbi)
 
-test_check("fbiAPI")
+test_check("fbi")
