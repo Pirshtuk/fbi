@@ -51,6 +51,7 @@ prep_ucr_crime_test <- function(file_name) {
 
   names(data) <- tolower(names(data))
   data$ori <- ori
+  data <- data.frame(data)
 
   return(data)
 }
