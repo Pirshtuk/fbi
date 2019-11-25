@@ -1,8 +1,8 @@
-year,ori,aggravated_assault_actual,aggravated_assault_cleared,arson_actual,arson_cleared,burglary_actual,burglary_cleared,homicide_actual,homicide_cleared,larceny_actual,larceny_cleared,motor_vehicle_theft_actual,motor_vehicle_theft_cleared,property_crime_actual,property_crime_cleared,robbery_actual,robbery_cleared,violent_crime_actual,violent_crime_cleared
-2003,NH008010X,1,0,0,0,0,0,0,0,3,1,1,0,4,1,0,0,3,0
-2004,NH008010X,6,4,0,0,0,0,1,0,8,2,2,0,10,2,0,0,9,4
-2014,NH008010X,1,1,0,0,3,0,0,0,2,0,2,2,7,2,0,0,2,1
-2015,NH008010X,5,5,0,0,1,0,0,0,3,1,2,1,6,2,0,0,5,5
-2016,NH008010X,3,3,0,0,0,0,0,0,3,0,1,0,4,0,0,0,4,3
-2017,NH008010X,3,3,0,0,0,0,0,0,3,2,1,1,4,3,0,0,3,3
-2018,NH008010X,5,4,0,0,1,1,0,0,0,0,2,2,3,3,1,0,8,6
+year,ori,violent_crime_actual,violent_crime_cleared,homicide_actual,homicide_cleared,robbery_actual,robbery_cleared,aggravated_assault_actual,aggravated_assault_cleared,property_crime_actual,property_crime_cleared,arson_actual,arson_cleared,burglary_actual,burglary_cleared,larceny_actual,larceny_cleared,motor_vehicle_theft_actual,motor_vehicle_theft_cleared
+2003,NH008010X,3,0,0,0,0,0,1,0,4,1,0,0,0,0,3,1,1,0
+2004,NH008010X,9,4,1,0,0,0,6,4,10,2,0,0,0,0,8,2,2,0
+2014,NH008010X,2,1,0,0,0,0,1,1,7,2,0,0,3,0,2,0,2,2
+2015,NH008010X,5,5,0,0,0,0,5,5,6,2,0,0,1,0,3,1,2,1
+2016,NH008010X,4,3,0,0,0,0,3,3,4,0,0,0,0,0,3,0,1,0
+2017,NH008010X,3,3,0,0,0,0,3,3,4,3,0,0,0,0,3,2,1,1
+2018,NH008010X,8,6,0,0,1,0,5,4,3,3,0,0,1,1,0,0,2,2

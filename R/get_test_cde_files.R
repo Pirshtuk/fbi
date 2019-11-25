@@ -65,6 +65,16 @@
 #   bind_rows(largest_agencies) %>%
 #   distinct(ori, .keep_all = TRUE)
 #
+#
+# need_violent_data <- c("CA0250000", "CA0401300", "CO0020100", "CT0000200", "GA1560100", "HI0020000", "IA0690100",
+#                        "KY0420700", "MA0090700", "MS0020000", "MS0250000", "NY0350200", "NY0513600", "OH0350400",
+#                        "OK0170100", "OR0030900", "PA0060500", "PA0406500", "SC014FC00", "TN0570000", "TX2490000",
+#                        "VA0510100",
+#                        "CO0020100", "CT0000200", "KY0420700", "MA0090700", "SC014FC00", "VA0510100")
+# agencies_to_download <-
+#   fbi_api_agencies %>%
+#   filter(ori %in% "ME0030700")
+#
 # setwd("C:/Users/user/Downloads")
 # rD <- start_rsDriver()
 # remDr <- rD$client
@@ -86,12 +96,14 @@
 #   webElem <- remDr$findElement(using = "css selector", "#since")
 #   years <- selectTag(webElem)
 #   years$elements[[1]]$clickElement()
+#   Sys.sleep(10)
 #
-#   for (crime_num in 1:10) {
+#   # 10 crimes total.
+#   for (crime_num in 1:2) {
 #     webElem <- remDr$findElement(using = "css selector", "#crime-select")
 #     crimes <- selectTag(webElem)
 #     crimes$elements[[crime_num]]$clickElement()
-#     Sys.sleep(10)
+#     Sys.sleep(15)
 #
 #     selenium_clicker(remDr, using = "css selector", '#explorer > div > div.mb3.ng-scope > div > div > div.bg-white > line-chart > div.clearfix.pt1.mb1 > button')
 #     Sys.sleep(1)

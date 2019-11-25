@@ -1,20 +1,9 @@
-# oris <- c("AL0210200", "AR0230600", "AR0600500", "AZ0072300", "CA0190000",
-#           "CA0194200", "CA0250000", "CA0371100", "CA0380100", "CA0401300", "CA0421200",
-#           "CA0431300", "CA0470500", "CO0020100", "CT0000200", "FL0130000", "FL0160200",
-#           "FL0229000", "FL0290000", "FL0350800", "GA1440000", "GA1560100", "HI0020000",
-#           "IA0690100", "IL0460000", "IL0630400", "IL0901900", "ILCPD0000", "IN0200200",
-#           "IN0410800", "IN0420100", "IN0490400", "INIPD0000", "KY0420700", "LA0190100",
-#           "MA0090700", "MD0160400", "MN0730600", "MO0956200", "MS0020000", "MS0250000",
-#           "NB0710000", "NBNSP2000", "NC0030000", "NC0460200", "NC0600100", "NC0670300",
-#           "NH008010X", "NJ0024600", "NJ0121300", "NJ0151400", "NV0020100", "NY0290000",
-#           "NY0303000", "NY0350200", "NY0510100", "NY0513600", "NY0560100", "OH0350400",
-#           "OH0451300", "OH0691100", "OK0170100", "OR0030900", "PA0060500", "PA0115800",
-#           "PA0360700", "PA0406500", "PAPEP0000", "SC014FC00", "SC0231000", "SC041SP00",
-#           "SD0620200", "TN0570000", "TX0151100", "TX0610600", "TX0770100", "TX1010000",
-#           "TX1016100", "TX2270100", "TX2300300", "TX2490000", "TXDPD0000", "TXHPD0000",
-#           "TXSPD0000", "VA0290100", "VA0510100", "VA0820500", "WI0540800", "WV0060200",
-#           "WV0140500")
-#
+oris <- list.files(system.file("testdata",
+                               package = "fbi"),
+                   pattern = "-violent-crime.csv")
+oris <- gsub("-.*", "", oris)
+oris <- unique(oris)
+
 # for (ori in oris) {
 #   #  writeLines(paste0(ori, "_real <- get_agency_crime('", i, "')"))
 #
@@ -24,3 +13,28 @@
 #          "_combined.csv'))"))
 # }
 #
+
+#combined_cde_ucr_files(oris)
+combined_cde_ucr_files <- function(oris) {
+  for (ori in oris) {
+    final <- data.frame()
+    files <- list.files(system.file("testdata",
+                                    package = "fbi"),
+                        pattern = ori)
+    files <- files[grep("_combined.csv$", files, invert = TRUE)]
+    files <- files[grep("rape", files, invert = TRUE)]
+    for (file in files) {
+      temp <- prep_ucr_crime_test(file)
+      if (nrow(final) == 0) {
+        final <- temp
+      } else {
+        final <- merge(final, temp, by = c("ori", "year"))
+      }
+    }
+    final <- final[, ucr_matching_columns]
+    data.table::fwrite(final, file = paste0(system.file("testdata",
+                                                        package = "fbi"),
+                                            "/", ori, "_combined.csv"))
+
+  }
+}

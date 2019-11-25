@@ -34,6 +34,7 @@ read.csv_system_file <- function(file) {
   data <- read.csv(system.file("testdata",
                                file,
                                package = "fbi"))
+  data$ori <- as.character(data$ori)
   return(data)
 }
 
@@ -43,8 +44,8 @@ ucr_matching_columns <- c("year",
                           "violent_crime_cleared",
                           "homicide_actual",
                           "homicide_cleared",
-                         # "rape_actual",
-                        #  "rape_cleared",
+                          # "rape_actual",
+                          # "rape_cleared",
                           "robbery_actual",
                           "robbery_cleared",
                           "aggravated_assault_actual",
@@ -163,7 +164,7 @@ us_estimated_crime$state_abbr <- ""
 
 
 ca_estimate_crime <- state_level_estimated_crime[state_level_estimated_crime$state_abbr %in%
-                                                         "CA", ]
+                                                   "CA", ]
 rownames(ca_estimate_crime) <- 1:nrow(ca_estimate_crime)
 pa_estimate_crime <- state_level_estimated_crime[state_level_estimated_crime$state_abbr %in%
                                                    "PA", ]
