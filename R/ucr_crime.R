@@ -2,9 +2,9 @@
 #'
 #' @family UCR crime functions
 #' @param ori
-#' A 9-character ORI code (unique agency ID) for the desired agency.
+#' A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.
 #' @param key
-#' Crime Data Explorer API key
+#' FBI's Crime Data Explorer API key
 #'
 #' @return
 #' @export

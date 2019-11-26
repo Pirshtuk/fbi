@@ -25,6 +25,7 @@ parse_lookup_response <- function(url) {
 #' @param agency
 #' @param state
 #' @param ori_only
+#' @param exact_match
 #'
 #' @return
 #' @export
@@ -32,9 +33,15 @@ parse_lookup_response <- function(url) {
 #' @examples
 get_agency_info <- function(agency,
                             state = NULL,
-                            ori_only = FALSE) {
+                            ori_only = FALSE,
+                            exact_match = TRUE) {
+  if (exact_match) {
     data <- fbi::fbi_api_agencies[tolower(fbi::fbi_api_agencies$agency_name) %in%
-                                  tolower(agency), ]
+                                    tolower(agency), ]
+  } else {
+    data <- fbi::fbi_api_agencies[grep(tolower(agency),
+                                       tolower(fbi::fbi_api_agencies$agency_name)), ]
+  }
   if (!is.null(state)) {
     data <- data[tolower(data$state_name) %in% tolower(state), ]
   }
@@ -48,6 +55,29 @@ get_agency_info <- function(agency,
 
   return(data)
 }
+
+#' Checks if the ORI is valid
+#'
+#' Checks an ORI (a 9-digit unique identifier code assigned to each agency)
+#' if valid for the API.
+#'
+#' @inheritParams get_agency_crime
+#' @param ori
+#'
+#' @return
+#' TRUE if ori is valid, else FALSE. If ori is a vector, returns TRUE or FALSE
+#' for each ori.
+#' @export
+#'
+#' @examples
+#' # ORI for Oakland Police Deparment in California
+#' is_valid_ori("CA0010900")
+#' # Incorrect ori
+#' is_valid_ori("abc123")
+is_valid_ori <- function(ori) {
+  return(ori %in% fbi::fbi_api_agencies$ori)
+}
+
 
 
 #' All agencies included in the FBI's Crime Data Explorer API.

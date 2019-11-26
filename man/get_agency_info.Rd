@@ -4,10 +4,11 @@
 \alias{get_agency_info}
 \title{Title}
 \usage{
-get_agency_info(agency, state = NULL, ori_only = FALSE)
+get_agency_info(agency, state = NULL, ori_only = FALSE,
+  exact_match = TRUE)
 }
 \arguments{
-\item{ori_only}{}
+\item{exact_match}{}
 }
 \description{
 Title

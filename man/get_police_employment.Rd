@@ -4,20 +4,30 @@
 \alias{get_police_employment}
 \title{Get agency-, state-, region-, or national-level police staffing data.}
 \usage{
-get_police_employment(key = get_api_key(), ori = NULL,
-  state_abb = NULL, region = NULL)
+get_police_employment(ori = NULL, state_abb = NULL, region = NULL,
+  key = get_api_key())
 }
 \arguments{
-\item{key}{Crime Data Explorer API key}
-
 \item{state_abb}{String or vector of strings input for state abbreviation(s) to get data for -
 if NULL returns national data. By default will get all state's data.}
 
 \item{region}{}
+
+\item{key}{FBI's Crime Data Explorer API key}
 }
 \value{
 A data.frame with columns for annual number of employees and officers (also broken up by gender).
 }
 \description{
 Get agency-, state-, region-, or national-level police staffing data.
+}
+\examples{
+# Gets only Oakland Police Department in California
+get_police_employment("CA0010900")
+
+# Gets California state-level estimates
+get_police_employment(state_abb = "CA")
+
+# Gets national-level estiamtes
+get_police_employment()
 }

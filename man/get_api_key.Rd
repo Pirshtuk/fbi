@@ -2,10 +2,18 @@
 % Please edit documentation in R/key.R
 \name{get_api_key}
 \alias{get_api_key}
-\title{Title}
+\title{Returns the FBI's Crime Data Explorer API key}
 \usage{
 get_api_key()
 }
+\value{
+A string with the FBI's Crime Data Explorer API key
+}
 \description{
-Title
+Returns the FBI's Crime Data Explorer API is one is set. If the key is not
+set then it will ask you to enter the key in the console and set the key
+for you.
+}
+\examples{
+get_api_key()
 }

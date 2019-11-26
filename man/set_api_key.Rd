@@ -2,13 +2,19 @@
 % Please edit documentation in R/key.R
 \name{set_api_key}
 \alias{set_api_key}
-\title{Title}
+\title{Sets the FBI's Crime Data Explorer API key}
 \usage{
 set_api_key(key)
 }
 \arguments{
 \item{key}{}
 }
+\value{
+A string with the FBI's Crime Data Explorer API key
+}
 \description{
-Title
+Sets the FBI's Crime Data Explorer API key
+}
+\examples{
+set_api_key("abc123")
 }

@@ -9,7 +9,7 @@ get_estimated_arson(key = get_api_key(), state_abb = NULL,
   region = NULL)
 }
 \arguments{
-\item{key}{Crime Data Explorer API key}
+\item{key}{FBI's Crime Data Explorer API key}
 
 \item{state_abb}{String or vector of strings input for state abbreviation(s) to get data for -
 if NULL returns national data. By default will get all state's data.}

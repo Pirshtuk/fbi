@@ -2,20 +2,28 @@
 #'
 #' @inheritParams get_estimated_arson
 #'
-#' @param key
 #' @param ori
 #' @param state_abb
 #' @param region
+#' @param key
 #'
 #' @return
 #' A data.frame with columns for annual number of employees and officers (also broken up by gender).
 #' @export
 #'
 #' @examples
-get_police_employment <- function(key = get_api_key(),
-                                  ori = NULL,
+#' # Gets only Oakland Police Department in California
+#' get_police_employment("CA0010900")
+#'
+#' # Gets California state-level estimates
+#' get_police_employment(state_abb = "CA")
+#'
+#' # Gets national-level estiamtes
+#' get_police_employment()
+get_police_employment <- function(ori = NULL,
                                   state_abb = NULL,
-                                  region = NULL) {
+                                  region = NULL,
+                                  key = get_api_key()) {
 
   data_type <- "police-employment"
   url_section <- combine_url_section(data_type, ori, region, state_abb)
