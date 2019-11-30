@@ -29,5 +29,7 @@ A data.frame of NIBRS victim data.
 Gets victim-level data from the FBI's National Incident-Based Reporting System (NIBRS)
 }
 \examples{
+\dontrun{
 get_nibrs_victim(ori = "DE0010100")
+}
 }

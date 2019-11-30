@@ -21,7 +21,9 @@ Get state- or national-level estimated crime counts from the UCR's Offenses Know
 and Clearances by Arrest data set.
 }
 \examples{
+\dontrun{
 get_estimated_crime("CA")
+}
 }
 \seealso{
 Other UCR crime functions: \code{\link{get_agency_crime}},

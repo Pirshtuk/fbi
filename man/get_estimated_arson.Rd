@@ -22,7 +22,9 @@ A data.frame with state-level estimated UCR arson data for selected state
 Get state-, region- or national-level estimated arson data from the UCR's Offenses Known and Clearances by Arrest data set.
 }
 \examples{
+\dontrun{
 get_estimated_arson("CA")
+}
 }
 \seealso{
 Other UCR crime functions: \code{\link{get_agency_crime}},

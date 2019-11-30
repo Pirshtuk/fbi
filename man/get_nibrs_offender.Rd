@@ -29,5 +29,7 @@ A data.frame of NIBRS offender data.
 Gets offender-level data from the FBI's National Incident-Based Reporting System (NIBRS)
 }
 \examples{
+\dontrun{
 get_nibrs_offender(ori = "DE0010100")
+}
 }

@@ -30,6 +30,8 @@ get_police_employment("CA0010900")
 # Gets California state-level estimates
 get_police_employment(state_abb = "CA")
 
-# Gets national-level estiamtes
+# Gets national-level estimates
+\dontrun{
 get_police_employment()
+}
 }
