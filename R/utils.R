@@ -104,7 +104,7 @@ make_url <- function(url_section,
                      end_year,
                      key) {
 
-  url <- paste0("http://api.usa.gov/crime/fbi/sapi/api/",
+  url <- paste0("https://api.usa.gov/crime/fbi/sapi/api/",
                 url_section,
                 "/",
                 start_year,

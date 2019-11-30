@@ -11,9 +11,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' get_agency_crime("AK0010100")
-#' }
+#' get_agency_crime("AK0010100", key = "dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a")
+#'
 get_agency_crime <- function(ori,
                              key = get_api_key()) {
 
