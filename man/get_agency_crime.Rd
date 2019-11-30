@@ -18,9 +18,8 @@ A data.frame with agency-level UCR crime data for selected agency.
 Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set.
 }
 \examples{
-\dontrun{
-get_agency_crime("AK0010100")
-}
+get_agency_crime("AK0010100", key = "dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a")
+
 }
 \seealso{
 Other UCR crime functions: \code{\link{get_estimated_arson}},
