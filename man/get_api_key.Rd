@@ -15,5 +15,7 @@ set then it will ask you to enter the key in the console and set the key
 for you.
 }
 \examples{
+\dontrun{
 get_api_key()
+}
 }

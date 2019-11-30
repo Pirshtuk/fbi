@@ -9,7 +9,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' get_api_key()
+#' }
 get_api_key <- function() {
   env <- Sys.getenv("FBI_API_KEY")
   if (env != "") {
