@@ -8,6 +8,7 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' # Gets only Oakland Police Department in California
 #' get_police_employment("CA0010900")
 #'
@@ -15,7 +16,6 @@
 #' get_police_employment(state_abb = "CA")
 #'
 #' # Gets national-level estimates
-#' \dontrun{
 #' get_police_employment()
 #' }
 get_police_employment <- function(ori = NULL,
