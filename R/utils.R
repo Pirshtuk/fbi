@@ -27,7 +27,7 @@ clean_column_names <- function(.data) {
 
 url_to_dataframe <- function(url) {
   useragent <- paste0(
-    "Mozilla/5.0 (compatible; a bot using the R boxoffice",
+    "Mozilla/5.0 (compatible; a bot using the R fbi",
     " package; https://github.com/jacobkap/fbi/)")
 
   response <- httr::GET(url = url,
@@ -112,8 +112,8 @@ make_url <- function(url_section,
                 end_year,
                 "?API_KEY=",
                 key)
-  api_url <- gsub("//", "/", url)
-  return(api_url)
+  #api_url <- gsub("//", "/", url)
+  return(url)
 }
 
 srs_long_to_wide <- function(.data) {

@@ -148,14 +148,9 @@ If NULL (default) returns national data. If `state_abb` and `region` both have v
     <p>A data.frame of NIBRS offense data.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_nibrs_offense</span>(<span class='kw'>ori</span> <span class='kw'>=</span> <span class='st'>"DE0010100"</span>)</div><div class='output co'>#&gt; Response [https://api.usa.gov/crime/fbi/sapi/api/data/nibrs/all/offense/agencies/DE0010100/count/?api_key=dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a]
-#&gt;   Date: 2019-11-30 01:31
-#&gt;   Status: 400
-#&gt;   Content-Type: application/json;charset=UTF-8
-#&gt;   Size: 76 B
-#&gt; {
-#&gt;   "message" : "The NIBRS offense specified is invalid",
-#&gt;   "status" : 400</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'>get_nibrs_offense</span>(<span class='kw'>ori</span> <span class='kw'>=</span> <span class='st'>"DE0010100"</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

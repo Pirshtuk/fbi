@@ -2,20 +2,20 @@
 
 test_that("State-level UCR crime estimates works", {
   # Removes arson column and state number column
-  # expect_equal(get_estimated_crime(state_abb = "CA")[, -c(3, 16)],
-  #              ca_estimate_crime)
-  # expect_equal(get_estimated_crime(state_abb = "PA")[, -c(3, 16)],
-  #              pa_estimate_crime)
-  # expect_equal(get_estimated_crime(state_abb = "OH")[, -c(3, 16)],
-  #              oh_estimate_crime)
-  # expect_equal(get_estimated_crime(state_abb = "ME")[, -c(3, 16)],
-  #              me_estimate_crime)
-  # expect_equal(get_estimated_crime(state_abb = "NY")[, -c(3, 16)],
-  #              ny_estimate_crime)
-  # expect_equal(get_estimated_crime(state_abb = "WY")[, -c(3, 16)],
-  #              wy_estimate_crime)
-  # expect_equal(get_estimated_crime(state_abb = "DC")[, -c(3, 16)],
-  #              dc_estimate_crime)
+  expect_equal(get_estimated_crime(state_abb = "CA")[, -c(3, 16)],
+               ca_estimate_crime)
+  expect_equal(get_estimated_crime(state_abb = "PA")[, -c(3, 16)],
+               pa_estimate_crime)
+  expect_equal(get_estimated_crime(state_abb = "OH")[, -c(3, 16)],
+               oh_estimate_crime)
+  expect_equal(get_estimated_crime(state_abb = "ME")[, -c(3, 16)],
+               me_estimate_crime)
+  expect_equal(get_estimated_crime(state_abb = "NY")[, -c(3, 16)],
+               ny_estimate_crime)
+  expect_equal(get_estimated_crime(state_abb = "WY")[, -c(3, 16)],
+               wy_estimate_crime)
+  expect_equal(get_estimated_crime(state_abb = "DC")[, -c(3, 16)],
+               dc_estimate_crime)
 })
 
 
