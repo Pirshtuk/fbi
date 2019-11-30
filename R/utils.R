@@ -9,7 +9,7 @@ make_state <- function(state_abb) {
 }
 
 read.csv_system_file <- function(file) {
-  data <- read.csv(system.file("testdata",
+  data <- utils::read.csv(system.file("testdata",
                                file,
                                package = "fbi"))
   data$ori <- as.character(data$ori)
