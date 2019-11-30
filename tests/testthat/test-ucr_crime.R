@@ -21,7 +21,7 @@ test_that("State-level UCR crime estimates works", {
 
 test_that("Agency-level UCR data works", {
 
-  expect_equal(get_agency_crime('AK0010100', key = "dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a")[, crime_matching_columns],
+  expect_equal(get_agency_crime('AK0010100')[, crime_matching_columns],
                read.csv_system_file('AK0010100_combined.csv'))
   # expect_equal(get_agency_crime('AL0210200')[, crime_matching_columns],
   #              read.csv_system_file('AL0210200_combined.csv'))
