@@ -112,7 +112,6 @@ make_url <- function(url_section,
                 end_year,
                 "?API_KEY=",
                 key)
-  #api_url <- gsub("//", "/", url)
   return(url)
 }
 
