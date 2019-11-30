@@ -9,7 +9,10 @@ get_agency_crime(ori, key = get_api_key())
 \arguments{
 \item{ori}{A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.}
 
-\item{key}{FBI's Crime Data Explorer API key}
+\item{key}{A string containing your FBI's Crime Data Explorer API key}
+}
+\value{
+A data.frame with agency-level UCR crime data for selected agency.
 }
 \description{
 Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set.

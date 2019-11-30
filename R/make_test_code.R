@@ -1,21 +1,42 @@
-oris <- list.files(system.file("testdata",
-                               package = "fbi"),
-                   pattern = "-violent-crime.csv")
-oris <- gsub("-.*", "", oris)
-oris <- unique(oris)
+# crime_oris <- get_oris("-violent-crime.csv")
+# police_oris <- get_oris("police-employment-breakout.csv")
+get_oris <- function(pattern) {
+  oris <- list.files(system.file("testdata",
+                                 package = "fbi"),
+                     pattern = pattern)
+  oris <- gsub("-.*", "", oris)
+  oris <- gsub("_police", "", oris)
+  oris <- unique(oris)
+  return(oris)
+}
 
-# for (ori in oris) {
-#   #  writeLines(paste0(ori, "_real <- get_agency_crime('", i, "')"))
-#
-#   writeLines(paste0('expect_equal(', ori,
-#          "_real[, ucr_matching_columns],\n read.csv_system_file('",
-#          ori,
-#          "_combined.csv'))"))
-# }
-#
+# make_tests_text(crime_oris, "get_agency_crime", "_combined",
+#                 "crime")
+# make_tests_text(police_oris, "get_police_employment", "_police-employment-breakout",
+#                 "police")
+make_tests_text <- function(oris, get_function, pattern, type) {
+  if (type == "crime") {
+    reader <- "read.csv_system_file"
+  } else if (type == "police") {
+    reader <- "prep_ucr_crime_test"
+  }
+
+  for (ori in oris) {
+    temp <- paste0('expect_equal(', get_function, "('", ori,
+                   "')[, ", type, "_matching_columns],\n ", reader, "('",
+                   ori,
+                   pattern, ".csv'))")
+    if (type == "police") {
+      temp <- gsub("))$", ",\n type = 'police'))", temp)
+    }
+
+    writeLines(temp)
+  }
+}
+
 
 #combined_cde_ucr_files(oris)
-combined_cde_ucr_files <- function(oris) {
+combined_cde_ucr_files <- function(oris, matching_columns) {
   for (ori in oris) {
     final <- data.frame()
     files <- list.files(system.file("testdata",
@@ -31,7 +52,7 @@ combined_cde_ucr_files <- function(oris) {
         final <- merge(final, temp, by = c("ori", "year"))
       }
     }
-    final <- final[, ucr_matching_columns]
+    final <- final[, matching_columns]
     data.table::fwrite(final, file = paste0(system.file("testdata",
                                                         package = "fbi"),
                                             "/", ori, "_combined.csv"))

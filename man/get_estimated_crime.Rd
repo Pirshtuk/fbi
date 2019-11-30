@@ -8,10 +8,13 @@ and Clearances by Arrest data set.}
 get_estimated_crime(state_abb = NULL, key = get_api_key())
 }
 \arguments{
-\item{state_abb}{String or vector of strings input for state abbreviation(s) to get data for -
-if NULL returns national data. By default will get all state's data.}
+\item{state_abb}{String or vector of strings input for state abbreviation(s) to get data for.
+If NULL (default) returns national data.}
 
-\item{key}{}
+\item{key}{A string containing your FBI's Crime Data Explorer API key}
+}
+\value{
+A data.frame with state-level estimated UCR crime data for selected state
 }
 \description{
 Get state- or national-level estimated crime counts from the UCR's Offenses Known

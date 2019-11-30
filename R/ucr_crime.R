@@ -4,9 +4,10 @@
 #' @param ori
 #' A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.
 #' @param key
-#' FBI's Crime Data Explorer API key
+#' A string containing your FBI's Crime Data Explorer API key
 #'
 #' @return
+#' A data.frame with agency-level UCR crime data for selected agency.
 #' @export
 #'
 #' @examples
@@ -38,11 +39,11 @@ get_agency_crime <- function(ori,
 #' @inheritParams get_agency_crime
 #'
 #' @param state_abb
-#' String or vector of strings input for state abbreviation(s) to get data for -
-#' if NULL returns national data. By default will get all state's data.
-#' @param key
+#' String or vector of strings input for state abbreviation(s) to get data for.
+#' If NULL (default) returns national data.
 #'
 #' @return
+#' A data.frame with state-level estimated UCR crime data for selected state
 #' @export
 #'
 #' @examples
@@ -59,7 +60,7 @@ get_estimated_crime <- function(state_abb = NULL,
 
   data <- url_to_dataframe(url)
   data <- clean_column_names(data)
-  data <- data.table::setorder(data, -year)
+  data <- data.table::setorder(data, -"year")
   data$state <- make_state(data$state_abbr)
   rownames(data) <- 1:nrow(data)
   data <- data[, c(2, 16, 1, 3, 4:15)]
@@ -67,26 +68,26 @@ get_estimated_crime <- function(state_abb = NULL,
   return(data)
 }
 
-#' Get state-, region- or national-level estimated arson data from the UCR's Offenses Known
-#' and Clearances by Arrest data set.
+#' Get state-, region- or national-level estimated arson data from the UCR's Offenses Known and Clearances by Arrest data set.
 #'
 #' @family UCR crime functions
 #' @inheritParams get_agency_crime
-#' @inheritParams get_estimated_crime
 #'
-#' @param key
 #' @param state_abb
+#' String or vector of strings input for state abbreviation(s) to get data for.
+#' If NULL (default) returns national data. If `state_abb` and `region` both have values, will use return `region` input data.
 #' @param region
-#' String input for region - if NULL and `state_abb` is NULL, returns national data.
+#' String or vector of strings input for region name(s) to get data for. Please run `list_regions()`  to see all possible variables.
 #'
 #' @return
+#' A data.frame with state-level estimated UCR arson data for selected state
 #' @export
 #'
 #' @examples
 #' get_estimated_arson("CA")
-get_estimated_arson <- function(key = get_api_key(),
-                                state_abb = NULL,
-                                region = NULL) {
+get_estimated_arson <- function(state_abb = NULL,
+                                region = NULL,
+                                key = get_api_key()) {
 
   url_section <- combine_url_section("arson",
                                      ori = NULL,

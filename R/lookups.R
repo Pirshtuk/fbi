@@ -1,9 +1,11 @@
 get_agencies <- function(key = get_api_key()) {
-  url <- make_url("agencies", start_year = NULL, end_year = NULL,
+  url <- make_url("agencies",
+                  start_year = NULL,
+                  end_year = NULL,
                   key = key)
   data <- parse_lookup_response(url)
   data[] <- sapply(data, as.character)
-  data <- data.table::setorder(data, ori)
+  data <- data.table::setorder(data, "ori")
   data <- as.data.frame(data)
   return(data)
 }
@@ -20,17 +22,27 @@ parse_lookup_response <- function(url) {
   return(response)
 }
 
-#' Title
+#' Get information about the selected agency
+#'
+#' Get information about the selected agency including the 9-digit ORI, geographic information, type of agency, and whether they report to NIBRS.
 #'
 #' @param agency
+#' A string or vector of strings with the name of the agency you want to lookup (capitalized is ignored).
 #' @param state
+#' A string or vector of strings of state names. If used, returns only agencies in that state. This is useful in cases where multiple agencies have the same name in different states and you only want specific states.
 #' @param ori_only
+#' If TRUE (not default), returns only the ORI and the agency_name columns.
 #' @param exact_match
+#' If TRUE (default), finds matches based on exact match of agency name. Else,
+#' uses `grep()` to find agencies with similar names to inputted agency.
 #'
 #' @return
+#' A data.frame with information about the agency - including ORI code and geographic information. The agency will have as many rows as agencies matched from the `agency` input.
 #' @export
 #'
 #' @examples
+#' get_agency_info("Oakland Police Department")
+#' get_agency_info("Oakland Police Department", state = "california")
 get_agency_info <- function(agency,
                             state = NULL,
                             ori_only = FALSE,
@@ -50,7 +62,7 @@ get_agency_info <- function(agency,
     message("No matching agencies found. Please revise your `agency` input.")
   }
   if (ori_only) {
-    data <- data$ori
+    data <- data[, c("agency_name", "ori")]
   }
 
   return(data)
@@ -58,11 +70,10 @@ get_agency_info <- function(agency,
 
 #' Checks if the ORI is valid
 #'
-#' Checks an ORI (a 9-digit unique identifier code assigned to each agency)
-#' if valid for the API.
+#' Checks if ORI (a 9-digit unique identifier code assigned to each agency)
+#' is valid for the API.
 #'
 #' @inheritParams get_agency_crime
-#' @param ori
 #'
 #' @return
 #' TRUE if ori is valid, else FALSE. If ori is a vector, returns TRUE or FALSE

@@ -1,11 +1,7 @@
 #' Get agency-, state-, region-, or national-level police staffing data.
 #'
 #' @inheritParams get_estimated_arson
-#'
-#' @param ori
-#' @param state_abb
-#' @param region
-#' @param key
+#' @inheritParams get_agency_crime
 #'
 #' @return
 #' A data.frame with columns for annual number of employees and officers (also broken up by gender).
@@ -31,5 +27,16 @@ get_police_employment <- function(ori = NULL,
 
   data <- url_to_dataframe(url)
   data <- clean_column_names(data)
+
+  names(data) <- gsub("_ct$", "", names(data))
+  names(data) <- gsub("^civilian$", "civilians_total", names(data))
+  names(data) <- gsub("_civilian$", "_civilians", names(data))
+  names(data) <- gsub("_officer$", "_officers", names(data))
+  names(data) <- gsub("total_pe$", "total_police_employees", names(data))
+  names(data) <- gsub("pe_ct_per_1000$", "police_employees_per_1000_pop", names(data))
+  data$officers_total <- data$female_officers + data$male_officers
+  data$employees_total <- data$officers_total + data$civilians_total
+
+
   return(data)
 }

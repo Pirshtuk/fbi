@@ -29,7 +29,6 @@ get_api_key <- function() {
 #' Sets the FBI's Crime Data Explorer API key
 #'
 #' @inheritParams get_agency_crime
-#' @param key
 #'
 #' @return
 #' A string with the FBI's Crime Data Explorer API key

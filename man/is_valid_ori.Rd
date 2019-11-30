@@ -7,15 +7,15 @@
 is_valid_ori(ori)
 }
 \arguments{
-\item{ori}{}
+\item{ori}{A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.}
 }
 \value{
 TRUE if ori is valid, else FALSE. If ori is a vector, returns TRUE or FALSE
 for each ori.
 }
 \description{
-Checks an ORI (a 9-digit unique identifier code assigned to each agency)
-if valid for the API.
+Checks if ORI (a 9-digit unique identifier code assigned to each agency)
+is valid for the API.
 }
 \examples{
 # ORI for Oakland Police Deparment in California

@@ -2,23 +2,24 @@
 % Please edit documentation in R/ucr_crime.R
 \name{get_estimated_arson}
 \alias{get_estimated_arson}
-\title{Get state-, region- or national-level estimated arson data from the UCR's Offenses Known
-and Clearances by Arrest data set.}
+\title{Get state-, region- or national-level estimated arson data from the UCR's Offenses Known and Clearances by Arrest data set.}
 \usage{
-get_estimated_arson(key = get_api_key(), state_abb = NULL,
-  region = NULL)
+get_estimated_arson(state_abb = NULL, region = NULL,
+  key = get_api_key())
 }
 \arguments{
-\item{key}{FBI's Crime Data Explorer API key}
+\item{state_abb}{String or vector of strings input for state abbreviation(s) to get data for.
+If NULL (default) returns national data. If `state_abb` and `region` both have values, will use return `region` input data.}
 
-\item{state_abb}{String or vector of strings input for state abbreviation(s) to get data for -
-if NULL returns national data. By default will get all state's data.}
+\item{region}{String or vector of strings input for region name(s) to get data for. Please run `list_regions()`  to see all possible variables.}
 
-\item{region}{String input for region - if NULL and `state_abb` is NULL, returns national data.}
+\item{key}{A string containing your FBI's Crime Data Explorer API key}
+}
+\value{
+A data.frame with state-level estimated UCR arson data for selected state
 }
 \description{
-Get state-, region- or national-level estimated arson data from the UCR's Offenses Known
-and Clearances by Arrest data set.
+Get state-, region- or national-level estimated arson data from the UCR's Offenses Known and Clearances by Arrest data set.
 }
 \examples{
 get_estimated_arson("CA")

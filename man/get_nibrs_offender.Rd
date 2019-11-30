@@ -2,15 +2,32 @@
 % Please edit documentation in R/nibrs.R
 \name{get_nibrs_offender}
 \alias{get_nibrs_offender}
-\title{Title}
+\title{Gets offender-level data from the FBI's National Incident-Based Reporting System (NIBRS)}
 \usage{
-get_nibrs_offender(key = get_api_key(), offense = "robbery",
-  variable = "race", ori = NULL, region_name = NULL,
-  state_abb = NULL)
+get_nibrs_offender(key = get_api_key(), offense = "all",
+  variable = "count", ori = NULL, region = NULL, state_abb = NULL)
 }
 \arguments{
-\item{state_abb}{}
+\item{key}{A string containing your FBI's Crime Data Explorer API key}
+
+\item{offense}{A string or vector of strings with the offenses you want to scrape. If
+input is 'all' (default), returns data for all offenses. Please run `list_nibrs_offenses()` to see all possible offenses.}
+
+\item{variable}{A string with the variable you want the data to be in. This is essentially the units you want returned (number of offenders by age, race, sex, etc.). By default returns total count of offenders Please run `list_nibrs_offender_variables()`  to see all possible variables.}
+
+\item{ori}{A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.}
+
+\item{region}{String or vector of strings input for region name(s) to get data for. Please run `list_regions()`  to see all possible variables.}
+
+\item{state_abb}{String or vector of strings input for state abbreviation(s) to get data for.
+If NULL (default) returns national data. If `state_abb` and `region` both have values, will use return `region` input data.}
+}
+\value{
+A data.frame of NIBRS offender data.
 }
 \description{
-Title
+Gets offender-level data from the FBI's National Incident-Based Reporting System (NIBRS)
+}
+\examples{
+get_nibrs_offender(ori = "DE0010100")
 }
