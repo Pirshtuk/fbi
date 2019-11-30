@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • fbiAPI</title>
+<title>Function reference • fbi</title>
 
 
 <!-- jquery -->
@@ -66,7 +66,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">fbiAPI</a>
+        <a class="navbar-link" href="../index.html">fbi</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
@@ -119,51 +119,112 @@
       <tr>
         
         <td>
-          <p><code><a href="get_agencies.html">get_agencies()</a></code> </p>
+          <p><code><a href="fbi_api_agencies.html">fbi_api_agencies</a></code> </p>
         </td>
-        <td><p>Title</p></td>
+        <td><p>All agencies included in the FBI's Crime Data Explorer API.</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="get_agency_crime.html">get_agency_crime()</a></code> </p>
         </td>
-        <td><p>Title</p></td>
+        <td><p>Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_agency_info.html">get_agency_info()</a></code> </p>
+        </td>
+        <td><p>Get information about the selected agency</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_api_key.html">get_api_key()</a></code> </p>
+        </td>
+        <td><p>Returns the FBI's Crime Data Explorer API key</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_estimated_arson.html">get_estimated_arson()</a></code> </p>
+        </td>
+        <td><p>Get state-, region- or national-level estimated arson data from the UCR's Offenses Known and Clearances by Arrest data set.</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="get_estimated_crime.html">get_estimated_crime()</a></code> </p>
         </td>
-        <td><p>Title</p></td>
+        <td><p>Get state- or national-level estimated crime counts from the UCR's Offenses Known
+and Clearances by Arrest data set.</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="get_nibrs_offender.html">get_nibrs_offender()</a></code> </p>
         </td>
-        <td><p>Title</p></td>
+        <td><p>Gets offender-level data from the FBI's National Incident-Based Reporting System (NIBRS)</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="get_nibrs_offense.html">get_nibrs_offense()</a></code> </p>
         </td>
-        <td><p>Title</p></td>
+        <td><p>Gets offense-level data from the FBI's National Incident-Based Reporting System (NIBRS)</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="get_nibrs_victim.html">get_nibrs_victim()</a></code> </p>
         </td>
-        <td><p>Title</p></td>
+        <td><p>Gets victim-level data from the FBI's National Incident-Based Reporting System (NIBRS)</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="get_police_employment.html">get_police_employment()</a></code> </p>
         </td>
-        <td><p>Title</p></td>
+        <td><p>Get agency-, state-, region-, or national-level police staffing data.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="hello.html">hello()</a></code> </p>
+          <p><code><a href="is_valid_ori.html">is_valid_ori()</a></code> </p>
         </td>
-        <td><p>Hello, World!</p></td>
+        <td><p>Checks if the ORI is valid</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="list_nibrs_offender_variables.html">list_nibrs_offender_variables()</a></code> </p>
+        </td>
+        <td><p>Returns a vector of all `variable` parameter options for `get_nibrs_offender()`.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="list_nibrs_offenses.html">list_nibrs_offenses()</a></code> </p>
+        </td>
+        <td><p>Return a vector of all offenses in the NIBRS data.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="list_nibrs_offense_variables.html">list_nibrs_offense_variables()</a></code> </p>
+        </td>
+        <td><p>Returns a vector of all `variable` parameter options for `get_nibrs_offense()`.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="list_nibrs_victim_variables.html">list_nibrs_victim_variables()</a></code> </p>
+        </td>
+        <td><p>Returns a vector of all `variable` parameter options for `get_nibrs_victim()`.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="list_regions.html">list_regions()</a></code> </p>
+        </td>
+        <td><p>Return a vector of all regions choices.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="list_ucr_arrest_offenses.html">list_ucr_arrest_offenses()</a></code> </p>
+        </td>
+        <td><p>Return a vector of all offenses in the UCR Arrest data.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="set_api_key.html">set_api_key()</a></code> </p>
+        </td>
+        <td><p>Sets the FBI's Crime Data Explorer API key</p></td>
       </tr>
     </tbody>
     </table>

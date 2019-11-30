@@ -35,7 +35,9 @@ get_nibrs <- function(key = get_api_key(),
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' get_nibrs_victim(ori = "DE0010100")
+#' }
 get_nibrs_victim <- function(key = get_api_key(),
                              offense     = "robbery",
                              variable    = "race",
@@ -66,7 +68,9 @@ get_nibrs_victim <- function(key = get_api_key(),
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' get_nibrs_offender(ori = "DE0010100")
+#' }
 get_nibrs_offender <- function(key = get_api_key(),
                                offense     = "all",
                                variable    = "count",
@@ -97,7 +101,9 @@ get_nibrs_offender <- function(key = get_api_key(),
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' get_nibrs_offense(ori = "DE0010100")
+#' }
 get_nibrs_offense <- function(key = get_api_key(),
                               offense     = "all",
                               variable    = "count",

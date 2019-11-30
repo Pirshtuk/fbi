@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gets offense-level data from the FBI's National Incident-Based Reporting System (NIBRS) — get_nibrs_offense • fbi</title>
+<title>Get information about the selected agency — get_agency_info • fbi</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Gets offense-level data from the FBI's National Incident-Based Reporting System (NIBRS) — get_nibrs_offense" />
-<meta property="og:description" content="Gets offense-level data from the FBI's National Incident-Based Reporting System (NIBRS)" />
+<meta property="og:title" content="Get information about the selected agency — get_agency_info" />
+<meta property="og:description" content="Get information about the selected agency including the 9-digit ORI, geographic information, type of agency, and whether they report to NIBRS." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,62 +100,77 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Gets offense-level data from the FBI's National Incident-Based Reporting System (NIBRS)</h1>
+    <h1>Get information about the selected agency</h1>
     
-    <div class="hidden name"><code>get_nibrs_offense.Rd</code></div>
+    <div class="hidden name"><code>get_agency_info.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Gets offense-level data from the FBI's National Incident-Based Reporting System (NIBRS)</p>
+    <p>Get information about the selected agency including the 9-digit ORI, geographic information, type of agency, and whether they report to NIBRS.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_nibrs_offense</span>(<span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>(), <span class='kw'>offense</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
-  <span class='kw'>variable</span> <span class='kw'>=</span> <span class='st'>"count"</span>, <span class='kw'>ori</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>region</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>get_agency_info</span>(<span class='no'>agency</span>, <span class='kw'>state</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ori_only</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>exact_match</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>key</th>
-      <td><p>A string containing your FBI's Crime Data Explorer API key</p></td>
+      <th>agency</th>
+      <td><p>A string or vector of strings with the name of the agency you want to lookup (capitalized is ignored).</p></td>
     </tr>
     <tr>
-      <th>offense</th>
-      <td><p>A string or vector of strings with the offenses you want to scrape. If
-input is 'all' (default), returns data for all offenses. Please run `list_nibrs_offenses()` to see all possible offenses.</p></td>
+      <th>state</th>
+      <td><p>A string or vector of strings of state names. If used, returns only agencies in that state. This is useful in cases where multiple agencies have the same name in different states and you only want specific states.</p></td>
     </tr>
     <tr>
-      <th>variable</th>
-      <td><p>A string with the variable you want the data to be in. This is essentially the units you want returned (number of offenses by weapon used, race, bias motivation, etc.). By default returns total count of offenders Please run `list_nibrs_offense_variables()`  to see all possible variables.</p></td>
+      <th>ori_only</th>
+      <td><p>If TRUE (not default), returns only the ORI and the agency_name columns.</p></td>
     </tr>
     <tr>
-      <th>ori</th>
-      <td><p>A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.</p></td>
-    </tr>
-    <tr>
-      <th>region</th>
-      <td><p>String or vector of strings input for region name(s) to get data for. Please run `list_regions()`  to see all possible variables.</p></td>
-    </tr>
-    <tr>
-      <th>state_abb</th>
-      <td><p>String or vector of strings input for state abbreviation(s) to get data for.
-If NULL (default) returns national data. If `state_abb` and `region` both have values, will use return `region` input data.</p></td>
+      <th>exact_match</th>
+      <td><p>If TRUE (default), finds matches based on exact match of agency name. Else,
+uses `grep()` to find agencies with similar names to inputted agency.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame of NIBRS offense data.</p>
+    <p>A data.frame with information about the agency - including ORI code and geographic information. The agency will have as many rows as agencies matched from the `agency` input.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_nibrs_offense</span>(<span class='kw'>ori</span> <span class='kw'>=</span> <span class='st'>"DE0010100"</span>)</div><div class='output co'>#&gt; Response [https://api.usa.gov/crime/fbi/sapi/api/data/nibrs/all/offense/agencies/DE0010100/count/?api_key=dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a]
-#&gt;   Date: 2019-11-30 01:31
-#&gt;   Status: 400
-#&gt;   Content-Type: application/json;charset=UTF-8
-#&gt;   Size: 76 B
-#&gt; {
-#&gt;   "message" : "The NIBRS offense specified is invalid",
-#&gt;   "status" : 400</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>get_agency_info</span>(<span class='st'>"Oakland Police Department"</span>)</div><div class='output co'>#&gt;             ori               agency_name agency_type_name   state_name
+#&gt; 905   CA0010900 Oakland Police Department             City   California
+#&gt; 2506  FL0480800 Oakland Police Department             City      Florida
+#&gt; 6607  MD0120200 Oakland Police Department             City     Maryland
+#&gt; 6761  ME0060500 Oakland Police Department             City        Maine
+#&gt; 8433  MO0959700 Oakland Police Department             City     Missouri
+#&gt; 10049 NJ0024200 Oakland Police Department             City   New Jersey
+#&gt; 14116 PA0580500 Oakland Police Department             City Pennsylvania
+#&gt; 15139 TN0240500 Oakland Police Department             City    Tennessee
+#&gt;       state_abbr      division_name region_name region_desc county_name nibrs
+#&gt; 905           CA            Pacific        West   Region IV     ALAMEDA FALSE
+#&gt; 2506          FL     South Atlantic       South  Region III      ORANGE FALSE
+#&gt; 6607          MD     South Atlantic       South  Region III     GARRETT FALSE
+#&gt; 6761          ME        New England   Northeast    Region I    KENNEBEC  TRUE
+#&gt; 8433          MO West North Central     Midwest   Region II    ST LOUIS FALSE
+#&gt; 10049         NJ    Middle Atlantic   Northeast    Region I      BERGEN FALSE
+#&gt; 14116         PA    Middle Atlantic   Northeast    Region I SUSQUEHANNA FALSE
+#&gt; 15139         TN East South Central       South  Region III     FAYETTE  TRUE
+#&gt;        latitude  longitude nibrs_start_date
+#&gt; 905    37.79965 -122.27459             NULL
+#&gt; 2506  28.514435 -81.323295             NULL
+#&gt; 6607  39.410545 -79.405556             NULL
+#&gt; 6761  44.417012 -69.765764       12/01/2011
+#&gt; 8433  38.602047  -90.35826             NULL
+#&gt; 10049 40.959648  -74.07486             NULL
+#&gt; 14116  41.95525  -75.60348             NULL
+#&gt; 15139 35.196993 -89.413803       07/01/1999</div><div class='input'><span class='fu'>get_agency_info</span>(<span class='st'>"Oakland Police Department"</span>, <span class='kw'>state</span> <span class='kw'>=</span> <span class='st'>"california"</span>)</div><div class='output co'>#&gt;           ori               agency_name agency_type_name state_name state_abbr
+#&gt; 905 CA0010900 Oakland Police Department             City California         CA
+#&gt;     division_name region_name region_desc county_name nibrs latitude  longitude
+#&gt; 905       Pacific        West   Region IV     ALAMEDA FALSE 37.79965 -122.27459
+#&gt;     nibrs_start_date
+#&gt; 905             NULL</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

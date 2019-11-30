@@ -11,7 +11,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' get_agency_crime("AK0010100")
+#' }
 get_agency_crime <- function(ori,
                              key = get_api_key()) {
 
@@ -47,7 +49,9 @@ get_agency_crime <- function(ori,
 #' @export
 #'
 #' @examples
+#'\dontrun{
 #' get_estimated_crime("CA")
+#' }
 get_estimated_crime <- function(state_abb = NULL,
                                 key = get_api_key()) {
 
@@ -84,7 +88,9 @@ get_estimated_crime <- function(state_abb = NULL,
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' get_estimated_arson("CA")
+#' }
 get_estimated_arson <- function(state_abb = NULL,
                                 region = NULL,
                                 key = get_api_key()) {

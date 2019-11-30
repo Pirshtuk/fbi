@@ -6,7 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Title — get_estimated_crime • fbiAPI</title>
+<title>Get state- or national-level estimated crime counts from the UCR's Offenses Known
+and Clearances by Arrest data set. — get_estimated_crime • fbi</title>
 
 
 <!-- jquery -->
@@ -35,8 +36,10 @@
 
 
 
-<meta property="og:title" content="Title — get_estimated_crime" />
-<meta property="og:description" content="Title" />
+<meta property="og:title" content="Get state- or national-level estimated crime counts from the UCR's Offenses Known
+and Clearances by Arrest data set. — get_estimated_crime" />
+<meta property="og:description" content="Get state- or national-level estimated crime counts from the UCR's Offenses Known
+and Clearances by Arrest data set." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -68,7 +71,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">fbiAPI</a>
+        <a class="navbar-link" href="../index.html">fbi</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
@@ -100,32 +103,173 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Title</h1>
+    <h1>Get state- or national-level estimated crime counts from the UCR's Offenses Known
+and Clearances by Arrest data set.</h1>
     
     <div class="hidden name"><code>get_estimated_crime.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Title</p>
+    <p>Get state- or national-level estimated crime counts from the UCR's Offenses Known
+and Clearances by Arrest data set.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_estimated_crime</span>(<span class='no'>start_year</span>, <span class='no'>end_year</span>, <span class='no'>api_key</span>, <span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>get_estimated_crime</span>(<span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>national</th>
-      <td></td>
+      <th>state_abb</th>
+      <td><p>String or vector of strings input for state abbreviation(s) to get data for.
+If NULL (default) returns national data.</p></td>
+    </tr>
+    <tr>
+      <th>key</th>
+      <td><p>A string containing your FBI's Crime Data Explorer API key</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>A data.frame with state-level estimated UCR crime data for selected state</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other UCR crime functions: <code><a href='get_agency_crime.html'>get_agency_crime</a></code>,
+  <code><a href='get_estimated_arson.html'>get_estimated_arson</a></code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>get_estimated_crime</span>(<span class='st'>"CA"</span>)</div><div class='output co'>#&gt;    state_abbr      state state_id year population violent_crime homicide
+#&gt; 1          CA California        6 2018   39557045        176982     1739
+#&gt; 2          CA California        6 2017   39399349        178597     1830
+#&gt; 3          CA California        6 2016   39296476        174796     1930
+#&gt; 4          CA California        6 2015   38993940        166883     1861
+#&gt; 5          CA California        6 2014   38792291        153763     1700
+#&gt; 6          CA California        6 2013   38431393        154739     1746
+#&gt; 7          CA California        6 2012   37999878        160944     1884
+#&gt; 8          CA California        6 2011   37683933        154943     1792
+#&gt; 9          CA California        6 2010   37338198        164133     1809
+#&gt; 10         CA California        6 2009   36961664        174934     1972
+#&gt; 11         CA California        6 2008   36756666        185329     2142
+#&gt; 12         CA California        6 2007   36553215        191561     2262
+#&gt; 13         CA California        6 2006   36457549        194483     2486
+#&gt; 14         CA California        6 2005   36154147        190178     2503
+#&gt; 15         CA California        6 2004   35842038        189175     2392
+#&gt; 16         CA California        6 2003   35462712        205551     2407
+#&gt; 17         CA California        6 2002   35001986        208388     2395
+#&gt; 18         CA California        6 2001   34600463        212867     2206
+#&gt; 19         CA California        6 2000   33871648        210531     2079
+#&gt; 20         CA California        6 1999   33145121        207879     2005
+#&gt; 21         CA California        6 1998   32667000        229883     2171
+#&gt; 22         CA California        6 1997   32268000        257582     2579
+#&gt; 23         CA California        6 1996   31878000        274996     2916
+#&gt; 24         CA California        6 1995   31589000        305154     3531
+#&gt; 25         CA California        6 1994   31431000        318395     3703
+#&gt; 26         CA California        6 1993   31211000        336381     4096
+#&gt; 27         CA California        6 1992   30867000        345624     3921
+#&gt; 28         CA California        6 1991   30380000        331122     3859
+#&gt; 29         CA California        6 1990   29760021        311051     3553
+#&gt; 30         CA California        6 1989   29063000        284136     3158
+#&gt; 31         CA California        6 1988   28168000        261912     2936
+#&gt; 32         CA California        6 1987   27663000        253943     2924
+#&gt; 33         CA California        6 1986   26981000        248370     3038
+#&gt; 34         CA California        6 1985   26365000        201763     2770
+#&gt; 35         CA California        6 1984   25622000        195589     2717
+#&gt; 36         CA California        6 1983   25174000        194491     2639
+#&gt; 37         CA California        6 1982   24724000        201429     2779
+#&gt; 38         CA California        6 1981   24159000        208485     3143
+#&gt; 39         CA California        6 1980   23532680        210290     3411
+#&gt; 40         CA California        6 1979   22696000        184087     2952
+#&gt;    rape_legacy rape_revised robbery aggravated_assault property_crime burglary
+#&gt; 1           NA        15505   54326             105412         941618   164632
+#&gt; 2           NA        14724   56625             105418         987063   176679
+#&gt; 3        13702        13702   54789             104375        1002070   188304
+#&gt; 4         9341        12811   52862              99349        1024914   197404
+#&gt; 5         8389        11578   48681              91804         947193   202669
+#&gt; 6         7464        10324   53640              89029        1018907   232058
+#&gt; 7         7837           NA   56521              94702        1049465   245767
+#&gt; 8         7665           NA   54291              91195         973822   230075
+#&gt; 9         8331           NA   58116              95877         981939   228857
+#&gt; 10        8713           NA   64093             100156        1009433   230198
+#&gt; 11        8903           NA   69388             104896        1080996   237811
+#&gt; 12        9046           NA   70706             109547        1112510   237850
+#&gt; 13        9235           NA   71142             111620        1159988   247230
+#&gt; 14        9392           NA   63622             114661        1200531   250521
+#&gt; 15        9615           NA   61768             115400        1227194   245903
+#&gt; 16        9994           NA   63770             129380        1215086   242274
+#&gt; 17       10198           NA   64968             130827        1176484   238428
+#&gt; 18        9960           NA   64614             136087        1134189   232273
+#&gt; 19        9785           NA   60249             138418        1056183   222293
+#&gt; 20        9363           NA   60039             136472        1053285   223814
+#&gt; 21        9782           NA   68782             149148        1188791   269012
+#&gt; 22       10189           NA   81468             163346        1312367   299240
+#&gt; 23       10244           NA   94222             167614        1385135   312212
+#&gt; 24       10554           NA  104611             186458        1536830   353895
+#&gt; 25       10984           NA  112160             191548        1622102   384257
+#&gt; 26       11766           NA  126436             194083        1678884   414182
+#&gt; 27       12761           NA  130897             198045        1716137   427491
+#&gt; 28       12896           NA  124939             189428        1726391   424656
+#&gt; 29       12688           NA  112208             182602        1654186   400392
+#&gt; 30       11966           NA   96431             172581        1681516   410468
+#&gt; 31       11780           NA   86141             161055        1607180   407631
+#&gt; 32       12109           NA   83341             155569        1545928   419969
+#&gt; 33       12119           NA   92512             140701        1576299   457698
+#&gt; 34       11421           NA   86387             101185        1516710   448506
+#&gt; 35       11702           NA   83924              97246        1461731   443094
+#&gt; 36       12093           NA   85826              93933        1486487   460460
+#&gt; 37       12529           NA   91988              94133        1599827   499466
+#&gt; 38       13566           NA   93781              97995        1625302   540806
+#&gt; 39       13693           NA   90420             102766        1633042   545138
+#&gt; 40       12239           NA   75767              93129        1511021   496310
+#&gt;    larceny motor_vehicle_theft arson
+#&gt; 1   621775              155211  8524
+#&gt; 2   642019              168365  8648
+#&gt; 3   637010              176756  7766
+#&gt; 4   656517              170993  7380
+#&gt; 5   592673              151851  7147
+#&gt; 6   621557              165292  7458
+#&gt; 7   635090              168608  7411
+#&gt; 8   596905              146842  7200
+#&gt; 9   600558              152524  7865
+#&gt; 10  615402              163833  9184
+#&gt; 11  650656              192529 10698
+#&gt; 12  654526              220134 11455
+#&gt; 13  669103              243655 12721
+#&gt; 14  692467              257543 12253
+#&gt; 15  728687              252604 12661
+#&gt; 16  731486              241326 13580
+#&gt; 17  715692              222364 13954
+#&gt; 18  697739              204177 15168
+#&gt; 19  651855              182035 14421
+#&gt; 20  660991              168480 14450
+#&gt; 21  724262              195517 14313
+#&gt; 22  784405              228722 15883
+#&gt; 23  830457              242466 17952
+#&gt; 24  902456              280479 17102
+#&gt; 25  929640              308205 18639
+#&gt; 26  945407              319295 20344
+#&gt; 27  968534              320112 21964
+#&gt; 28  986120              315615 19088
+#&gt; 29  951580              302214 19380
+#&gt; 30  972603              298445 19018
+#&gt; 31  933636              265913 18804
+#&gt; 32  896335              229624 18470
+#&gt; 33  913004              205597 19542
+#&gt; 34  890967              177237 20412
+#&gt; 35  857328              161309 19396
+#&gt; 36  867123              158904 17649
+#&gt; 37  935831              164530 20263
+#&gt; 38  921939              162557 24520
+#&gt; 39  913070              174834 28476
+#&gt; 40  847148              167563 17901</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

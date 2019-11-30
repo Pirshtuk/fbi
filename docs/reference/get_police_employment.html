@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Title — get_police_employment • fbiAPI</title>
+<title>Get agency-, state-, region-, or national-level police staffing data. — get_police_employment • fbi</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Title — get_police_employment" />
-<meta property="og:description" content="Title" />
+<meta property="og:title" content="Get agency-, state-, region-, or national-level police staffing data. — get_police_employment" />
+<meta property="og:description" content="Get agency-, state-, region-, or national-level police staffing data." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -68,7 +68,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">fbiAPI</a>
+        <a class="navbar-link" href="../index.html">fbi</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
@@ -100,33 +100,475 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Title</h1>
+    <h1>Get agency-, state-, region-, or national-level police staffing data.</h1>
     
     <div class="hidden name"><code>get_police_employment.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Title</p>
+    <p>Get agency-, state-, region-, or national-level police staffing data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_police_employment</span>(<span class='no'>start_year</span>, <span class='no'>end_year</span>, <span class='no'>api_key</span>, <span class='kw'>ori</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>region_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>get_police_employment</span>(<span class='kw'>ori</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>region</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>ori</th>
+      <td><p>A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.</p></td>
+    </tr>
+    <tr>
       <th>state_abb</th>
-      <td></td>
+      <td><p>String or vector of strings input for state abbreviation(s) to get data for.
+If NULL (default) returns national data. If `state_abb` and `region` both have values, will use return `region` input data.</p></td>
+    </tr>
+    <tr>
+      <th>region</th>
+      <td><p>String or vector of strings input for region name(s) to get data for. Please run `list_regions()`  to see all possible variables.</p></td>
+    </tr>
+    <tr>
+      <th>key</th>
+      <td><p>A string containing your FBI's Crime Data Explorer API key</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>A data.frame with columns for annual number of employees and officers (also broken up by gender).</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># Gets only Oakland Police Department in California</span>
+<span class='fu'>get_police_employment</span>(<span class='st'>"CA0010900"</span>)</div><div class='output co'>#&gt;    year civilians_total female_civilians female_officers female_total
+#&gt; 1  1985             298              162              39          201
+#&gt; 2  1986             309              167              45          212
+#&gt; 3  1987             297              160              41          201
+#&gt; 4  1988             234              152              39          191
+#&gt; 5  1989             376              207              37          244
+#&gt; 6  1990             331              202              47          249
+#&gt; 7  1991             403              217              55          272
+#&gt; 8  1992             413              240              63          303
+#&gt; 9  1993             370              225              62          287
+#&gt; 10 1994             335              217              62          279
+#&gt; 11 1995             348              186              63          249
+#&gt; 12 1996             398              233              56          289
+#&gt; 13 1997             395              255              65          320
+#&gt; 14 1998             394              260              68          328
+#&gt; 15 1999             373              247              73          320
+#&gt; 16 2000             394              265              77          342
+#&gt; 17 2001             437              237              78          315
+#&gt; 18 2002             418              280              92          372
+#&gt; 19 2003             420              280              81          361
+#&gt; 20 2004             377              233              75          308
+#&gt; 21 2005             289              222             108          330
+#&gt; 22 2006             321              250             105          355
+#&gt; 23 2007             356              276              82          358
+#&gt; 24 2008             290              230              84          314
+#&gt; 25 2009             264              219              87          306
+#&gt; 26 2010             261              214              74          288
+#&gt; 27 2011             266              217              72          289
+#&gt; 28 2012             265              216              67          283
+#&gt; 29 2013             256              208              74          282
+#&gt; 30 2014             379              264              83          347
+#&gt; 31 2015             300              236              87          323
+#&gt; 32 2016             296              236              95          331
+#&gt; 33 2017             293              231              97          328
+#&gt; 34 2018             279              219              98          317
+#&gt;    male_civilians male_officers male_total population total_police_employees
+#&gt; 1             136           578        714     362095                    915
+#&gt; 2             142           590        732     370556                    944
+#&gt; 3             137           566        703     365983                    904
+#&gt; 4              82           551        633     367782                    824
+#&gt; 5             169           573        742     366305                    986
+#&gt; 6             129           580        709     372242                    958
+#&gt; 7             186           616        802     379995                   1074
+#&gt; 8             173           657        830     386086                   1133
+#&gt; 9             145           657        802     377037                   1089
+#&gt; 10            118           609        727     379695                   1006
+#&gt; 11            162           598        760     368771                   1009
+#&gt; 12            165           570        735     372145                   1024
+#&gt; 13            140           599        739     376696                   1059
+#&gt; 14            134           666        800     376375                   1128
+#&gt; 15            126           664        790     371234                   1110
+#&gt; 16            129           660        789     399484                   1131
+#&gt; 17            200           660        860     406908                   1175
+#&gt; 18            138           722        860     414161                   1232
+#&gt; 19            140           711        851     407003                   1212
+#&gt; 20            144           631        775     403445                   1083
+#&gt; 21             67           622        689     400619                   1019
+#&gt; 22             71           583        654     398834                   1009
+#&gt; 23             80           640        720     396541                   1078
+#&gt; 24             60           682        742     401587                   1056
+#&gt; 25             45           706        751     404553                   1057
+#&gt; 26             47           600        647     390724                    935
+#&gt; 27             49           575        624     395317                    913
+#&gt; 28             49           559        608     399487                    891
+#&gt; 29             48           565        613     403887                    895
+#&gt; 30            115           632        747     409994                   1094
+#&gt; 31             64           647        711     419481                   1034
+#&gt; 32             60           655        715     424998                   1046
+#&gt; 33             62           647        709     424915                   1037
+#&gt; 34             60           633        693     430230                   1010
+#&gt;          ori ncic_agency_name agency_name_edit agency_type_name state_abbr
+#&gt; 1  CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 2  CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 3  CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 4  CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 5  CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 6  CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 7  CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 8  CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 9  CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 10 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 11 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 12 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 13 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 14 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 15 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 16 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 17 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 18 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 19 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 20 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 21 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 22 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 23 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 24 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 25 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 26 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 27 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 28 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 29 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 30 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 31 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 32 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 33 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt; 34 CA0010900       OAKLAND PD       OAKLAND PD             City         CA
+#&gt;    police_employees_per_1000_pop officers_total employees_total
+#&gt; 1                           2.53            617             915
+#&gt; 2                           2.55            635             944
+#&gt; 3                           2.47            607             904
+#&gt; 4                           2.24            590             824
+#&gt; 5                           2.69            610             986
+#&gt; 6                           2.57            627             958
+#&gt; 7                           2.83            671            1074
+#&gt; 8                           2.93            720            1133
+#&gt; 9                           2.89            719            1089
+#&gt; 10                          2.65            671            1006
+#&gt; 11                          2.74            661            1009
+#&gt; 12                          2.75            626            1024
+#&gt; 13                          2.81            664            1059
+#&gt; 14                          3.00            734            1128
+#&gt; 15                          2.99            737            1110
+#&gt; 16                          2.83            737            1131
+#&gt; 17                          2.89            738            1175
+#&gt; 18                          2.97            814            1232
+#&gt; 19                          2.98            792            1212
+#&gt; 20                          2.68            706            1083
+#&gt; 21                          2.54            730            1019
+#&gt; 22                          2.53            688            1009
+#&gt; 23                          2.72            722            1078
+#&gt; 24                          2.63            766            1056
+#&gt; 25                          2.61            793            1057
+#&gt; 26                          2.39            674             935
+#&gt; 27                          2.31            647             913
+#&gt; 28                          2.23            626             891
+#&gt; 29                          2.22            639             895
+#&gt; 30                          2.67            715            1094
+#&gt; 31                          2.46            734            1034
+#&gt; 32                          2.46            750            1046
+#&gt; 33                          2.44            744            1037
+#&gt; 34                          2.35            731            1010</div><div class='input'>
+<span class='co'># Gets California state-level estimates</span>
+<span class='fu'>get_police_employment</span>(<span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='st'>"CA"</span>)</div><div class='output co'>#&gt;    year civilians_total female_civilians female_officers female_total
+#&gt; 1  1985           22272            15200            3776        18976
+#&gt; 2  1986           22872            15598            4100        19698
+#&gt; 3  1987           22825            15635            4328        19963
+#&gt; 4  1988           21600            15272            4110        19382
+#&gt; 5  1989           25596            17450            5333        22783
+#&gt; 6  1990           26544            18193            5785        23978
+#&gt; 7  1991           27909            19062            6111        25173
+#&gt; 8  1992           27966            19087            6021        25108
+#&gt; 9  1993           27286            18226            6050        24276
+#&gt; 10 1994           27997            18783            6316        25099
+#&gt; 11 1995           29183            19357            6873        26230
+#&gt; 12 1996           30839            20666            7342        28008
+#&gt; 13 1997           28345            19175            6998        26173
+#&gt; 14 1998           32097            21333            7934        29267
+#&gt; 15 1999           36748            23967            8853        32820
+#&gt; 16 2000           36099            23552            8720        32272
+#&gt; 17 2001           36102            23372            8872        32244
+#&gt; 18 2002           40558            25690            9410        35100
+#&gt; 19 2003           40267            26216            9680        35896
+#&gt; 20 2004           39646            25721            9611        35332
+#&gt; 21 2005           40049            25744            9726        35470
+#&gt; 22 2006           41368            26444            9937        36381
+#&gt; 23 2007           43396            27805           10252        38057
+#&gt; 24 2008           43160            28098           10951        39049
+#&gt; 25 2009           42495            27622           10828        38450
+#&gt; 26 2010           40833            26172           10618        36790
+#&gt; 27 2011           39576            25716           10279        35995
+#&gt; 28 2012           40532            25712           10305        36017
+#&gt; 29 2013           40755            25815           10159        35974
+#&gt; 30 2014           41646            26289           10193        36482
+#&gt; 31 2015           41350            26091           10141        36232
+#&gt; 32 2016           41719            26144           10299        36443
+#&gt; 33 2017           40944            25474           10337        35811
+#&gt; 34 2018           40900            25561           10478        36039
+#&gt;    male_civilians male_officers male_total population total_police_employees
+#&gt; 1            7072         47782      54854   26566282                  73830
+#&gt; 2            7274         48881      56155   27193441                  75853
+#&gt; 3            7190         49143      56333   27885070                  76296
+#&gt; 4            6328         47095      53423   28413241                  72805
+#&gt; 5            8146         52530      60676   29323401                  83459
+#&gt; 6            8351         54320      62671   30047608                  86649
+#&gt; 7            8847         55381      64228   30612217                  89401
+#&gt; 8            8879         54675      63554   31102927                  88662
+#&gt; 9            9060         53868      62928   31453274                  87204
+#&gt; 10           9214         54494      63708   31674969                  88807
+#&gt; 11           9826         56345      66171   31854695                  92401
+#&gt; 12          10173         58997      69170   32131922                  97178
+#&gt; 13           9170         53569      62739   32362913                  88912
+#&gt; 14          10764         60913      71677   32763349                 100944
+#&gt; 15          12781         65383      78164   33243480                 110984
+#&gt; 16          12547         64375      76922   33974269                 109194
+#&gt; 17          12730         64644      77374   34608064                 109618
+#&gt; 18          14868         67224      82092   35222901                 117192
+#&gt; 19          14051         67944      81995   35592667                 117891
+#&gt; 20          13925         66821      80746   36003471                 116078
+#&gt; 21          14305         66976      81281   36243236                 116751
+#&gt; 22          14924         68129      83053   36572532                 119434
+#&gt; 23          15591         70824      86415   36672767                 124472
+#&gt; 24          15062         72938      88000   36876276                 127049
+#&gt; 25          14873         72074      86947   37061435                 125397
+#&gt; 26          14661         70994      85655   37346022                 122445
+#&gt; 27          13860         68614      82474   37819249                 118469
+#&gt; 28          14820         67757      82577   38183375                 118594
+#&gt; 29          14940         67770      82710   38498377                 118684
+#&gt; 30          15357         68238      83595   38970399                 120077
+#&gt; 31          15259         68507      83766   39315550                 119998
+#&gt; 32          15575         68620      84195   39421283                 120638
+#&gt; 33          15470         68403      83873   39713887                 119684
+#&gt; 34          15339         68663      84002   39735951                 120041
+#&gt;    state_id state_name state_abbr agency_count_pe_submitting
+#&gt; 1         6 California         CA                        706
+#&gt; 2         6 California         CA                        737
+#&gt; 3         6 California         CA                        740
+#&gt; 4         6 California         CA                        741
+#&gt; 5         6 California         CA                        749
+#&gt; 6         6 California         CA                        757
+#&gt; 7         6 California         CA                        751
+#&gt; 8         6 California         CA                        762
+#&gt; 9         6 California         CA                        742
+#&gt; 10        6 California         CA                        741
+#&gt; 11        6 California         CA                        744
+#&gt; 12        6 California         CA                        720
+#&gt; 13        6 California         CA                        720
+#&gt; 14        6 California         CA                        718
+#&gt; 15        6 California         CA                        720
+#&gt; 16        6 California         CA                        723
+#&gt; 17        6 California         CA                        724
+#&gt; 18        6 California         CA                        727
+#&gt; 19        6 California         CA                        727
+#&gt; 20        6 California         CA                        724
+#&gt; 21        6 California         CA                        721
+#&gt; 22        6 California         CA                        729
+#&gt; 23        6 California         CA                        730
+#&gt; 24        6 California         CA                        730
+#&gt; 25        6 California         CA                        735
+#&gt; 26        6 California         CA                        735
+#&gt; 27        6 California         CA                        736
+#&gt; 28        6 California         CA                        736
+#&gt; 29        6 California         CA                        739
+#&gt; 30        6 California         CA                        741
+#&gt; 31        6 California         CA                        739
+#&gt; 32        6 California         CA                        739
+#&gt; 33        6 California         CA                        736
+#&gt; 34        6 California         CA                        737
+#&gt;    police_employees_per_1000_pop officers_total employees_total
+#&gt; 1                           2.78          51558           73830
+#&gt; 2                           2.79          52981           75853
+#&gt; 3                           2.74          53471           76296
+#&gt; 4                           2.56          51205           72805
+#&gt; 5                           2.85          57863           83459
+#&gt; 6                           2.88          60105           86649
+#&gt; 7                           2.92          61492           89401
+#&gt; 8                           2.85          60696           88662
+#&gt; 9                           2.77          59918           87204
+#&gt; 10                          2.80          60810           88807
+#&gt; 11                          2.90          63218           92401
+#&gt; 12                          3.02          66339           97178
+#&gt; 13                          2.75          60567           88912
+#&gt; 14                          3.08          68847          100944
+#&gt; 15                          3.34          74236          110984
+#&gt; 16                          3.21          73095          109194
+#&gt; 17                          3.17          73516          109618
+#&gt; 18                          3.33          76634          117192
+#&gt; 19                          3.31          77624          117891
+#&gt; 20                          3.22          76432          116078
+#&gt; 21                          3.22          76702          116751
+#&gt; 22                          3.27          78066          119434
+#&gt; 23                          3.39          81076          124472
+#&gt; 24                          3.45          83889          127049
+#&gt; 25                          3.38          82902          125397
+#&gt; 26                          3.28          81612          122445
+#&gt; 27                          3.13          78893          118469
+#&gt; 28                          3.11          78062          118594
+#&gt; 29                          3.08          77929          118684
+#&gt; 30                          3.08          78431          120077
+#&gt; 31                          3.05          78648          119998
+#&gt; 32                          3.06          78919          120638
+#&gt; 33                          3.01          78740          119684
+#&gt; 34                          3.02          79141          120041</div><div class='input'>
+<span class='co'># Gets national-level estiamtes</span>
+<span class='fu'>get_police_employment</span>()</div><div class='output co'>#&gt;    year civilians_total female_civilians female_officers female_total
+#&gt; 1  1985          153996            98509           33048       131557
+#&gt; 2  1986          160071           102160           36028       138188
+#&gt; 3  1987          167909           107230           38009       145239
+#&gt; 4  1988          174263           112393           39988       152381
+#&gt; 5  1989          188696           120754           43158       163912
+#&gt; 6  1990          197420           126968           46741       173709
+#&gt; 7  1991          207621           133382           50235       183617
+#&gt; 8  1992          212221           135130           52146       187276
+#&gt; 9  1993          224433           141559           54279       195838
+#&gt; 10 1994          239890           149360           58634       207994
+#&gt; 11 1995          248450           154000           63329       217329
+#&gt; 12 1996          257790           160397           66329       226726
+#&gt; 13 1997          251779           157165           68048       225213
+#&gt; 14 1998          268863           167096           71614       238710
+#&gt; 15 1999          287749           181552           74386       255938
+#&gt; 16 2000          293528           183393           76962       260355
+#&gt; 17 2001          303670           189449           80252       269701
+#&gt; 18 2002          310777           192534           80223       272757
+#&gt; 19 2003          310434           192910           82721       275631
+#&gt; 20 2004          319538           197642           85514       283156
+#&gt; 21 2005          320864           197730           85606       283336
+#&gt; 22 2006          328015           201465           87510       288975
+#&gt; 23 2007          347467           211851           88558       300409
+#&gt; 24 2008          339878           208775           90841       299616
+#&gt; 25 2009          342433           208139           93406       301545
+#&gt; 26 2010          332837           202289           90073       292362
+#&gt; 27 2011          335398           203576          103664       307240
+#&gt; 28 2012          329648           197750           92045       289795
+#&gt; 29 2013          323950           196277           90188       286465
+#&gt; 30 2014          329792           197065           91739       288804
+#&gt; 31 2015          336473           201187           93814       295001
+#&gt; 32 2016          343554           205608           95553       301161
+#&gt; 33 2017          288516           174195           84427       258622
+#&gt; 34 2018          296716           178993           90939       269932
+#&gt;    male_civilians male_officers male_total population total_police_employees
+#&gt; 1           55487        460259     515746  242487508                 647303
+#&gt; 2           57911        468139     526050  244909160                 664238
+#&gt; 3           60679        472712     533391  247674898                 678630
+#&gt; 4           61870        475168     537038  250263626                 689419
+#&gt; 5           67942        488880     556822  252766828                 720734
+#&gt; 6           70452        501792     572244  253286315                 745953
+#&gt; 7           74239        517275     591514  260760111                 775131
+#&gt; 8           77091        524692     601783  263995383                 789059
+#&gt; 9           82874        537488     620362  268848321                 816200
+#&gt; 10          90530        559464     649994  273258089                 857988
+#&gt; 11          94450        580221     674671  274533527                 892000
+#&gt; 12          97393        591878     689271  279987086                 915997
+#&gt; 13          94614        586901     681515  279779640                 906728
+#&gt; 14         101767        607552     709319  281772213                 948029
+#&gt; 15         106197        622750     728947  286959578                 984885
+#&gt; 16         110135        630437     740572  294295177                1000927
+#&gt; 17         114221        639751     753972  297245791                1023673
+#&gt; 18         118243        637985     756228  299620096                1028985
+#&gt; 19         117524        645253     762777  303677529                1038408
+#&gt; 20         121896        653240     775136  306481898                1058292
+#&gt; 21         123134        651640     774774  307251878                1058110
+#&gt; 22         126550        660885     787435  309434275                1076410
+#&gt; 23         135616        672268     807884  312284936                1108293
+#&gt; 24         131103        681303     812406  314905802                1112022
+#&gt; 25         134294        694081     828375  316298981                1129920
+#&gt; 26         130548        676469     807017  318512605                1099379
+#&gt; 27         131822        690450     822272  322276014                1129512
+#&gt; 28         131898        680305     812203  323754843                1101998
+#&gt; 29         127673        678447     806120  325359020                1092585
+#&gt; 30         132727        678578     811305  328133558                1100109
+#&gt; 31         135286        697224     832510  332627419                1127511
+#&gt; 32         137946        697876     835822  333934559                1136983
+#&gt; 33         114321        591409     705730  336664398                 964352
+#&gt; 34         117723        619525     737248  339044592                1007180
+#&gt;    agency_count_pe_submitting police_employees_per_1000_pop officers_total
+#&gt; 1                       14081                          2.67         493307
+#&gt; 2                       14140                          2.71         504167
+#&gt; 3                       14063                          2.74         510721
+#&gt; 4                       12904                          2.75         515156
+#&gt; 5                       14116                          2.85         532038
+#&gt; 6                       13920                          2.95         548533
+#&gt; 7                       13928                          2.97         567510
+#&gt; 8                       14154                          2.99         576838
+#&gt; 9                       13362                          3.04         591767
+#&gt; 10                      13380                          3.14         618098
+#&gt; 11                      13275                          3.25         643550
+#&gt; 12                      12544                          3.27         658207
+#&gt; 13                      12906                          3.24         654949
+#&gt; 14                      12572                          3.36         679166
+#&gt; 15                      13220                          3.43         697136
+#&gt; 16                      14033                          3.40         707399
+#&gt; 17                      14123                          3.44         720003
+#&gt; 18                      14776                          3.43         718208
+#&gt; 19                      14882                          3.42         727974
+#&gt; 20                      15299                          3.45         738754
+#&gt; 21                      15435                          3.44         737246
+#&gt; 22                      16060                          3.48         748395
+#&gt; 23                      16321                          3.55         760826
+#&gt; 24                      16458                          3.53         772144
+#&gt; 25                      16636                          3.57         787487
+#&gt; 26                      17342                          3.45         766542
+#&gt; 27                      17298                          3.50         794114
+#&gt; 28                      17248                          3.40         772350
+#&gt; 29                      17490                          3.36         768635
+#&gt; 30                      17439                          3.35         770317
+#&gt; 31                      17502                          3.39         791038
+#&gt; 32                      17547                          3.40         793429
+#&gt; 33                      16536                          2.86         675836
+#&gt; 34                      16609                          2.97         710464
+#&gt;    employees_total
+#&gt; 1           647303
+#&gt; 2           664238
+#&gt; 3           678630
+#&gt; 4           689419
+#&gt; 5           720734
+#&gt; 6           745953
+#&gt; 7           775131
+#&gt; 8           789059
+#&gt; 9           816200
+#&gt; 10          857988
+#&gt; 11          892000
+#&gt; 12          915997
+#&gt; 13          906728
+#&gt; 14          948029
+#&gt; 15          984885
+#&gt; 16         1000927
+#&gt; 17         1023673
+#&gt; 18         1028985
+#&gt; 19         1038408
+#&gt; 20         1058292
+#&gt; 21         1058110
+#&gt; 22         1076410
+#&gt; 23         1108293
+#&gt; 24         1112022
+#&gt; 25         1129920
+#&gt; 26         1099379
+#&gt; 27         1129512
+#&gt; 28         1101998
+#&gt; 29         1092585
+#&gt; 30         1100109
+#&gt; 31         1127511
+#&gt; 32         1136983
+#&gt; 33          964352
+#&gt; 34         1007180</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

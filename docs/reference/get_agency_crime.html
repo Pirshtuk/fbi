@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Title — get_agency_crime • fbiAPI</title>
+<title>Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set. — get_agency_crime • fbi</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Title — get_agency_crime" />
-<meta property="og:description" content="Title" />
+<meta property="og:title" content="Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set. — get_agency_crime" />
+<meta property="og:description" content="Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -68,7 +68,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">fbiAPI</a>
+        <a class="navbar-link" href="../index.html">fbi</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
@@ -100,33 +100,327 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Title</h1>
+    <h1>Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set.</h1>
     
     <div class="hidden name"><code>get_agency_crime.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Title</p>
+    <p>Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_agency_crime</span>(<span class='no'>ori</span>, <span class='kw'>start_year</span> <span class='kw'>=</span> <span class='fl'>1985</span>, <span class='kw'>end_year</span> <span class='kw'>=</span> <span class='fl'>2018</span>, <span class='no'>api_key</span>,
-  <span class='kw'>offense</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
+    <pre class="usage"><span class='fu'>get_agency_crime</span>(<span class='no'>ori</span>, <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>offense</th>
-      <td></td>
+      <th>ori</th>
+      <td><p>A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.</p></td>
+    </tr>
+    <tr>
+      <th>key</th>
+      <td><p>A string containing your FBI's Crime Data Explorer API key</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>A data.frame with agency-level UCR crime data for selected agency.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other UCR crime functions: <code><a href='get_estimated_arson.html'>get_estimated_arson</a></code>,
+  <code><a href='get_estimated_crime.html'>get_estimated_crime</a></code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>get_agency_crime</span>(<span class='st'>"AK0010100"</span>)</div><div class='output co'>#&gt;          ori state_abbr year aggravated_assault_cleared
+#&gt; 1  AK0010100         AK 1985                        183
+#&gt; 2  AK0010100         AK 1986                        241
+#&gt; 3  AK0010100         AK 1987                        286
+#&gt; 4  AK0010100         AK 1988                        289
+#&gt; 5  AK0010100         AK 1989                        337
+#&gt; 6  AK0010100         AK 1990                        376
+#&gt; 7  AK0010100         AK 1991                        369
+#&gt; 8  AK0010100         AK 1992                        565
+#&gt; 9  AK0010100         AK 1993                        688
+#&gt; 10 AK0010100         AK 1994                        732
+#&gt; 11 AK0010100         AK 1995                        728
+#&gt; 12 AK0010100         AK 1996                        778
+#&gt; 13 AK0010100         AK 1997                        748
+#&gt; 14 AK0010100         AK 1998                        659
+#&gt; 15 AK0010100         AK 1999                        662
+#&gt; 16 AK0010100         AK 2000                        596
+#&gt; 17 AK0010100         AK 2001                        704
+#&gt; 18 AK0010100         AK 2002                        645
+#&gt; 19 AK0010100         AK 2003                        727
+#&gt; 20 AK0010100         AK 2004                       1097
+#&gt; 21 AK0010100         AK 2005                        896
+#&gt; 22 AK0010100         AK 2006                       1213
+#&gt; 23 AK0010100         AK 2007                       1155
+#&gt; 24 AK0010100         AK 2008                       1223
+#&gt; 25 AK0010100         AK 2009                       1134
+#&gt; 26 AK0010100         AK 2010                       1129
+#&gt; 27 AK0010100         AK 2011                       1003
+#&gt; 28 AK0010100         AK 2012                       1107
+#&gt; 29 AK0010100         AK 2013                        961
+#&gt; 30 AK0010100         AK 2014                       1035
+#&gt; 31 AK0010100         AK 2015                       1142
+#&gt; 32 AK0010100         AK 2016                       1208
+#&gt; 33 AK0010100         AK 2017                       1348
+#&gt; 34 AK0010100         AK 2018                       1528
+#&gt;    aggravated_assault_actual arson_cleared arson_actual burglary_cleared
+#&gt; 1                        606            14          232              177
+#&gt; 2                        684            35          189              184
+#&gt; 3                        571             7          164              204
+#&gt; 4                        669             2           77              139
+#&gt; 5                        709             1           39              144
+#&gt; 6                        767             0           74              153
+#&gt; 7                        838             8          106              168
+#&gt; 8                       1217            10          105              164
+#&gt; 9                       1410            20          105              192
+#&gt; 10                      1529            16          144              181
+#&gt; 11                      1462            11           96              176
+#&gt; 12                      1297            11           87              155
+#&gt; 13                      1191             9           83              190
+#&gt; 14                      1056            11           77              150
+#&gt; 15                      1106             9           83              223
+#&gt; 16                       973            13          101              186
+#&gt; 17                      1144            10          103              153
+#&gt; 18                      1067            15          141              157
+#&gt; 19                      1143            25          128              178
+#&gt; 20                      1555            13           82              171
+#&gt; 21                      1407             7           76              144
+#&gt; 22                      1862            18          106              186
+#&gt; 23                      1673            29          145              222
+#&gt; 24                      1830            37          106              162
+#&gt; 25                      1658            17          111              179
+#&gt; 26                      1701            20           86              149
+#&gt; 27                      1628            26          126              141
+#&gt; 28                      1673            24           97              147
+#&gt; 29                      1491            15           74              140
+#&gt; 30                      1705            19           81              133
+#&gt; 31                      2062            30          106              168
+#&gt; 32                      2157            19           69              209
+#&gt; 33                      2368            14           62              250
+#&gt; 34                      2468            15           46              311
+#&gt;    burglary_actual homicide_cleared homicide_actual human_trafficing_cleared
+#&gt; 1             2892               10              14                        0
+#&gt; 2             2824                8              17                        0
+#&gt; 3             2113                7              15                        0
+#&gt; 4             1890                9              13                        0
+#&gt; 5             1708               12              11                        0
+#&gt; 6             2060                7              10                        0
+#&gt; 7             2489                9              25                        0
+#&gt; 8             2650                9              17                        0
+#&gt; 9             1880               13              23                        0
+#&gt; 10            2276               14              22                        0
+#&gt; 11            2521               19              29                        0
+#&gt; 12            2353               16              25                        0
+#&gt; 13            1931               21              23                        0
+#&gt; 14            1617               11              19                        0
+#&gt; 15            1543               10              19                        0
+#&gt; 16            1533                9              10                        0
+#&gt; 17            1606                8              10                        0
+#&gt; 18            1521               19              18                        0
+#&gt; 19            1418                9              17                        0
+#&gt; 20            1523               14              15                        0
+#&gt; 21            1783               10              16                        0
+#&gt; 22            1733               12              17                        0
+#&gt; 23            1454               17              22                        0
+#&gt; 24            1191                7              10                        0
+#&gt; 25            1613               12              14                        0
+#&gt; 26            1223               10              13                        0
+#&gt; 27            1080               13              12                        0
+#&gt; 28            1158               12              15                        0
+#&gt; 29            1318               12              14                        0
+#&gt; 30            1375                9              12                        0
+#&gt; 31            1685               21              26                        0
+#&gt; 32            2008               20              28                        0
+#&gt; 33            2216               28              27                        0
+#&gt; 34            2068               14              26                        0
+#&gt;    human_trafficing_actual larceny_cleared larceny_actual
+#&gt; 1                        0            1908           9154
+#&gt; 2                        0            2416          11071
+#&gt; 3                        0            1935           9491
+#&gt; 4                        0            1744           8340
+#&gt; 5                        0            2379           8219
+#&gt; 6                        0            2232           8083
+#&gt; 7                        0            2824           9967
+#&gt; 8                        0            2785          10813
+#&gt; 9                        0            2754          10660
+#&gt; 10                       0            2752          11717
+#&gt; 11                       0            2525          11152
+#&gt; 12                       0            2239          10163
+#&gt; 13                       0            2239          10083
+#&gt; 14                       0            1994           8834
+#&gt; 15                       0            1870           8471
+#&gt; 16                       0            2162           8799
+#&gt; 17                       0            1865           8648
+#&gt; 18                       0            2158           9255
+#&gt; 19                       0            2062           9091
+#&gt; 20                       0            1530           7354
+#&gt; 21                       0            1694           8248
+#&gt; 22                       0            2040           8543
+#&gt; 23                       0            1962           8397
+#&gt; 24                       0            1914           7254
+#&gt; 25                       0            1889           7835
+#&gt; 26                       0            1844           8178
+#&gt; 27                       0            1707           7750
+#&gt; 28                       0            1868           8554
+#&gt; 29                       0            2220           9845
+#&gt; 30                       0            1713           9217
+#&gt; 31                       0            1603           8962
+#&gt; 32                       0            1481          10599
+#&gt; 33                       0            1358          10721
+#&gt; 34                       0            1305           9498
+#&gt;    motor_vehicle_theft_cleared motor_vehicle_theft_actual
+#&gt; 1                           72                       1392
+#&gt; 2                           88                       1386
+#&gt; 3                           94                       1117
+#&gt; 4                          151                       1182
+#&gt; 5                          172                       1158
+#&gt; 6                          204                       1534
+#&gt; 7                          160                       1561
+#&gt; 8                          170                       1611
+#&gt; 9                          179                       1387
+#&gt; 10                         342                       2191
+#&gt; 11                         317                       2122
+#&gt; 12                         210                       1584
+#&gt; 13                         176                       1362
+#&gt; 14                         226                       1281
+#&gt; 15                         203                       1251
+#&gt; 16                         163                       1010
+#&gt; 17                         171                       1212
+#&gt; 18                         220                       1173
+#&gt; 19                         214                       1197
+#&gt; 20                         192                       1024
+#&gt; 21                         231                       1334
+#&gt; 22                         243                       1445
+#&gt; 23                         234                       1256
+#&gt; 24                         147                        766
+#&gt; 25                         158                        868
+#&gt; 26                         139                        813
+#&gt; 27                         126                        625
+#&gt; 28                         168                        831
+#&gt; 29                         182                        869
+#&gt; 30                         143                        939
+#&gt; 31                         214                       1154
+#&gt; 32                         338                       2042
+#&gt; 33                         497                       3104
+#&gt; 34                         461                       2823
+#&gt;    property_crime_cleared property_crime_actual rape_cleared rape_actual
+#&gt; 1                    2157                 13438            0           0
+#&gt; 2                    2688                 15281            0           0
+#&gt; 3                    2233                 12721            0           0
+#&gt; 4                    2034                 11412            0           0
+#&gt; 5                    2695                 11085            0           0
+#&gt; 6                    2589                 11677            0           0
+#&gt; 7                    3152                 14017            0           0
+#&gt; 8                    3119                 15074            0           0
+#&gt; 9                    3125                 13927            0           0
+#&gt; 10                   3275                 16184            0           0
+#&gt; 11                   3018                 15795            0           0
+#&gt; 12                   2604                 14100            0           0
+#&gt; 13                   2605                 13376            0           0
+#&gt; 14                   2370                 11732            0           0
+#&gt; 15                   2296                 11265            0           0
+#&gt; 16                   2511                 11342            0           0
+#&gt; 17                   2189                 11466            0           0
+#&gt; 18                   2535                 11949            0           0
+#&gt; 19                   2454                 11706            0           0
+#&gt; 20                   1893                  9901            0           0
+#&gt; 21                   2069                 11365            0           0
+#&gt; 22                   2469                 11721            0           0
+#&gt; 23                   2418                 11107            0           0
+#&gt; 24                   2223                  9211            0           0
+#&gt; 25                   2226                 10316            0           0
+#&gt; 26                   2132                 10214            0           0
+#&gt; 27                   1974                  9455            0           0
+#&gt; 28                   2183                 10543            0           0
+#&gt; 29                   2542                 12032           87         408
+#&gt; 30                   1989                 11531           78         392
+#&gt; 31                   1985                 11801           69         517
+#&gt; 32                   2028                 14649           80         542
+#&gt; 33                   2105                 16041           58         607
+#&gt; 34                   2077                 14389          123         613
+#&gt;    rape_legacy_cleared rape_legacy_actual robbery_cleared robbery_actual
+#&gt; 1                   17                193              51            371
+#&gt; 2                   26                167              78            330
+#&gt; 3                   52                154              58            285
+#&gt; 4                   35                159              58            281
+#&gt; 5                   15                139              42            272
+#&gt; 6                   29                203              48            350
+#&gt; 7                   30                264              83            542
+#&gt; 8                   22                253              64            484
+#&gt; 9                   39                212              90            568
+#&gt; 10                  36                198             102            729
+#&gt; 11                  39                242             131            777
+#&gt; 12                  43                198             115            558
+#&gt; 13                  38                174             101            501
+#&gt; 14                  30                184              87            373
+#&gt; 15                  25                160              97            398
+#&gt; 16                  41                195              67            346
+#&gt; 17                  48                210              79            384
+#&gt; 18                  68                254              79            382
+#&gt; 19                  53                244              84            340
+#&gt; 20                  71                263              78            331
+#&gt; 21                  41                224              84            384
+#&gt; 22                  39                248             120            465
+#&gt; 23                  59                257             121            453
+#&gt; 24                  30                263             195            544
+#&gt; 25                  51                282             192            534
+#&gt; 26                  41                264             160            454
+#&gt; 27                  70                283             154            465
+#&gt; 28                  77                303             140            488
+#&gt; 29                   0                  0             166            522
+#&gt; 30                   0                  0             156            496
+#&gt; 31                   0                  0             213            621
+#&gt; 32                   0                  0             205            695
+#&gt; 33                   0                  0             216            778
+#&gt; 34                   0                  0             276            717
+#&gt;    violent_crime_cleared violent_crime_actual
+#&gt; 1                    261                 1184
+#&gt; 2                    353                 1198
+#&gt; 3                    403                 1025
+#&gt; 4                    391                 1122
+#&gt; 5                    406                 1131
+#&gt; 6                    460                 1330
+#&gt; 7                    491                 1669
+#&gt; 8                    660                 1971
+#&gt; 9                    830                 2213
+#&gt; 10                   884                 2478
+#&gt; 11                   917                 2510
+#&gt; 12                   952                 2078
+#&gt; 13                   908                 1889
+#&gt; 14                   787                 1632
+#&gt; 15                   794                 1683
+#&gt; 16                   713                 1524
+#&gt; 17                   839                 1748
+#&gt; 18                   811                 1721
+#&gt; 19                   873                 1744
+#&gt; 20                  1260                 2164
+#&gt; 21                  1031                 2031
+#&gt; 22                  1384                 2592
+#&gt; 23                  1352                 2405
+#&gt; 24                  1455                 2647
+#&gt; 25                  1389                 2488
+#&gt; 26                  1340                 2432
+#&gt; 27                  1240                 2388
+#&gt; 28                  1336                 2479
+#&gt; 29                  1226                 2435
+#&gt; 30                  1278                 2605
+#&gt; 31                  1445                 3226
+#&gt; 32                  1513                 3422
+#&gt; 33                  1650                 3780
+#&gt; 34                  1941                 3824</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

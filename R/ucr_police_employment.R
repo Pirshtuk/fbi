@@ -14,8 +14,10 @@
 #' # Gets California state-level estimates
 #' get_police_employment(state_abb = "CA")
 #'
-#' # Gets national-level estiamtes
+#' # Gets national-level estimates
+#' \dontrun{
 #' get_police_employment()
+#' }
 get_police_employment <- function(ori = NULL,
                                   state_abb = NULL,
                                   region = NULL,

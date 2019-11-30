@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gets offense-level data from the FBI's National Incident-Based Reporting System (NIBRS) — get_nibrs_offense • fbi</title>
+<title>Returns a vector of all `variable` parameter options for `get_nibrs_offense()`. — list_nibrs_offense_variables • fbi</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Gets offense-level data from the FBI's National Incident-Based Reporting System (NIBRS) — get_nibrs_offense" />
-<meta property="og:description" content="Gets offense-level data from the FBI's National Incident-Based Reporting System (NIBRS)" />
+<meta property="og:title" content="Returns a vector of all `variable` parameter options for `get_nibrs_offense()`. — list_nibrs_offense_variables" />
+<meta property="og:description" content="Returns a vector of all `variable` parameter options for `get_nibrs_offense()`." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,67 +100,28 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Gets offense-level data from the FBI's National Incident-Based Reporting System (NIBRS)</h1>
+    <h1>Returns a vector of all `variable` parameter options for `get_nibrs_offense()`.</h1>
     
-    <div class="hidden name"><code>get_nibrs_offense.Rd</code></div>
+    <div class="hidden name"><code>list_nibrs_offense_variables.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Gets offense-level data from the FBI's National Incident-Based Reporting System (NIBRS)</p>
+    <p>Returns a vector of all `variable` parameter options for `get_nibrs_offense()`.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_nibrs_offense</span>(<span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>(), <span class='kw'>offense</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
-  <span class='kw'>variable</span> <span class='kw'>=</span> <span class='st'>"count"</span>, <span class='kw'>ori</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>region</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>list_nibrs_offense_variables</span>()</pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>key</th>
-      <td><p>A string containing your FBI's Crime Data Explorer API key</p></td>
-    </tr>
-    <tr>
-      <th>offense</th>
-      <td><p>A string or vector of strings with the offenses you want to scrape. If
-input is 'all' (default), returns data for all offenses. Please run `list_nibrs_offenses()` to see all possible offenses.</p></td>
-    </tr>
-    <tr>
-      <th>variable</th>
-      <td><p>A string with the variable you want the data to be in. This is essentially the units you want returned (number of offenses by weapon used, race, bias motivation, etc.). By default returns total count of offenders Please run `list_nibrs_offense_variables()`  to see all possible variables.</p></td>
-    </tr>
-    <tr>
-      <th>ori</th>
-      <td><p>A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.</p></td>
-    </tr>
-    <tr>
-      <th>region</th>
-      <td><p>String or vector of strings input for region name(s) to get data for. Please run `list_regions()`  to see all possible variables.</p></td>
-    </tr>
-    <tr>
-      <th>state_abb</th>
-      <td><p>String or vector of strings input for state abbreviation(s) to get data for.
-If NULL (default) returns national data. If `state_abb` and `region` both have values, will use return `region` input data.</p></td>
-    </tr>
-    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame of NIBRS offense data.</p>
+    <p>A vector of all `variable` parameter options for `get_nibrs_offense()`.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_nibrs_offense</span>(<span class='kw'>ori</span> <span class='kw'>=</span> <span class='st'>"DE0010100"</span>)</div><div class='output co'>#&gt; Response [https://api.usa.gov/crime/fbi/sapi/api/data/nibrs/all/offense/agencies/DE0010100/count/?api_key=dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a]
-#&gt;   Date: 2019-11-30 01:31
-#&gt;   Status: 400
-#&gt;   Content-Type: application/json;charset=UTF-8
-#&gt;   Size: 76 B
-#&gt; {
-#&gt;   "message" : "The NIBRS offense specified is invalid",
-#&gt;   "status" : 400</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='list_nibrs_offender_variables.html'>list_nibrs_offender_variables</a></span>()</div><div class='output co'>#&gt; [1] "age"       "count"     "ethnicity" "race"      "sex"      </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
