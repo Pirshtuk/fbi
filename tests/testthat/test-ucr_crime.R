@@ -2,9 +2,8 @@
 
 test_that("State-level UCR crime estimates works", {
   # Removes arson column and state number column
-  expect_equal(get_estimated_crime(state_abb = "CA",
-                                   key = "dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a")[, -c(3, 16)],
-               ca_estimate_crime)
+  # expect_equal(get_estimated_crime(state_abb = "CA")[, -c(3, 16)],
+  #              ca_estimate_crime)
   # expect_equal(get_estimated_crime(state_abb = "PA")[, -c(3, 16)],
   #              pa_estimate_crime)
   # expect_equal(get_estimated_crime(state_abb = "OH")[, -c(3, 16)],
@@ -22,8 +21,8 @@ test_that("State-level UCR crime estimates works", {
 
 test_that("Agency-level UCR data works", {
 
-  # expect_equal(get_agency_crime('AK0010100')[, crime_matching_columns],
-  #              read.csv_system_file('AK0010100_combined.csv'))
+  expect_equal(get_agency_crime('AK0010100', key = "dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a")[, crime_matching_columns],
+               read.csv_system_file('AK0010100_combined.csv'))
   # expect_equal(get_agency_crime('AL0210200')[, crime_matching_columns],
   #              read.csv_system_file('AL0210200_combined.csv'))
   # expect_equal(get_agency_crime('AR0230600')[, crime_matching_columns],
