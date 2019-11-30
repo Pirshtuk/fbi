@@ -30,13 +30,6 @@ load(system.file("testdata",
                  package = "fbi"))
 set_api_key("dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a")
 
-read.csv_system_file <- function(file) {
-  data <- read.csv(system.file("testdata",
-                               file,
-                               package = "fbi"))
-  data$ori <- as.character(data$ori)
-  return(data)
-}
 
 police_matching_columns <- c("year",
                              "male_officers",

@@ -8,6 +8,14 @@ make_state <- function(state_abb) {
   return(state)
 }
 
+read.csv_system_file <- function(file) {
+  data <- read.csv(system.file("testdata",
+                               file,
+                               package = "fbi"))
+  data$ori <- as.character(data$ori)
+  return(data)
+}
+
 clean_column_names <- function(.data) {
   names(.data) <- tolower(names(.data))
   names(.data) <- gsub("-", "_", names(.data))
