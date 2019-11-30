@@ -3,7 +3,7 @@
 
 # Overview
 
-<!-- badges: start -->
+<!-- badges: start --> 
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/fbi)](https://cran.r-project.org/package=fbi.png)
 [![Travis-CI Build
