@@ -26,7 +26,12 @@ clean_column_names <- function(.data) {
 
 
 url_to_dataframe <- function(url) {
-  response <- httr::GET(url = paste0(url))
+  useragent <- paste0(
+    "Mozilla/5.0 (compatible; a bot using the R boxoffice",
+    " package; https://github.com/jacobkap/fbi/)")
+
+  response <- httr::GET(url = url,
+                        httr::user_agent(useragent))
 
 
   if (response$status_code %in% 200) {
@@ -99,7 +104,7 @@ make_url <- function(url_section,
                      end_year,
                      key) {
 
-  url <- paste0("https://api.usa.gov/crime/fbi/sapi/api/",
+  url <- paste0("http://api.usa.gov/crime/fbi/sapi/api/",
                 url_section,
                 "/",
                 start_year,
