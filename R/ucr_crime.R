@@ -59,7 +59,7 @@ get_estimated_crime <- function(state_abb = NULL,
                                      ori = NULL,
                                      state_abb = state_abb,
                                      region_name = NULL)
-  url <- make_url(url_section, 1979, 2018, key)
+  url <- make_url(url_section, 1979, key)
 
 
   data <- url_to_dataframe(url)
@@ -99,7 +99,7 @@ get_estimated_arson <- function(state_abb = NULL,
                                      ori = NULL,
                                      state_abb = state_abb,
                                      region_name = region)
-  url <- make_url(url_section, 1975, 2018, key)
+  url <- make_url(url_section, 1975, key)
 
 
   data <- url_to_dataframe(url)

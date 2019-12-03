@@ -217,12 +217,13 @@ list_nibrs_offenses <- function() {
 #' @examples
 #' list_nibrs_victim_variables()
 list_nibrs_victim_variables <- function() {
-  return(c("age",
-           "count",
-           "ethnicity",
-           "race",
-           "sex",
-           "relationship"))
+  return(sort(c("age",
+                "count",
+                "ethnicity",
+                "race",
+                "sex",
+                "relationship",
+                "location")))
 }
 
 #' Returns a vector of all `variable` parameter options for `get_nibrs_offender()`.

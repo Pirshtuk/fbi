@@ -3,6 +3,9 @@
 #' @inheritParams get_agency_crime
 #' @inheritParams get_estimated_arson
 #'
+#' @param monthly
+#' If TRUE (not default), returns data as monthly units. Otherwise returns annual data.
+#'
 #' @return
 #' A data.frame with the number of arrests for each crime-year in the jurisdiction.
 #' @export
@@ -26,7 +29,7 @@ get_arrest_count <- function(ori = NULL,
     start_year <- "all/1985"
   }
 
-  url <- make_url(url_section, start_year, 2018, key)
+  url <- make_url(url_section, start_year, key)
   url <- gsub("offense/agencies", "offense", url)
 
   data <- url_to_dataframe(url)

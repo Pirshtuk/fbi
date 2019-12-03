@@ -25,7 +25,7 @@ get_police_employment <- function(ori = NULL,
 
   data_type <- "police-employment"
   url_section <- combine_url_section(data_type, ori, region, state_abb)
-  url <- make_url(url_section, 1985, 2018, key)
+  url <- make_url(url_section, 1985, key)
 
   data <- url_to_dataframe(url)
   data <- clean_column_names(data)
