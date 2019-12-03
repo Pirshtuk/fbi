@@ -13,6 +13,8 @@ Status](https://ci.appveyor.com/api/projects/status/github/jacobkap/fbi?branch=m
 [![Coverage
 status](https://codecov.io/gh/jacobkap/fbi/branch/master/graph/badge.svg)](https://codecov.io/github/jacobkap/fbi?branch=master)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/fbi?color=blue)](https://cran.r-project.org/package=fbi)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 The goal of `fbi` is to …

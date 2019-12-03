@@ -2,7 +2,7 @@
 % Please edit documentation in R/ucr_crime.R
 \name{get_agency_crime}
 \alias{get_agency_crime}
-\title{Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set.}
+\title{Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set.}
 \usage{
 get_agency_crime(ori, key = get_api_key())
 }
@@ -15,11 +15,12 @@ get_agency_crime(ori, key = get_api_key())
 A data.frame with agency-level UCR crime data for selected agency.
 }
 \description{
-Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set.
+Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set.
 }
 \examples{
-get_agency_crime("AK0010100", key = "dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a")
-
+\dontrun{
+get_agency_crime("AK0010100")
+}
 }
 \seealso{
 Other UCR crime functions: \code{\link{get_estimated_arson}},

@@ -3,6 +3,8 @@
 export(get_agency_crime)
 export(get_agency_info)
 export(get_api_key)
+export(get_arrest_count)
+export(get_arrest_demographics)
 export(get_estimated_arson)
 export(get_estimated_crime)
 export(get_nibrs_offender)

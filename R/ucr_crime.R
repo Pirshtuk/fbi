@@ -1,4 +1,4 @@
-#' Get agency-level data from the UCR's Offenses Known and Clearances by Arrest data set.
+#' Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set.
 #'
 #' @family UCR crime functions
 #' @param ori

@@ -1,6 +1,6 @@
 make_state <- function(state_abb) {
   state <- datasets::state.name[match(tolower(state_abb),
-                                     tolower(datasets::state.abb))]
+                                      tolower(datasets::state.abb))]
   state[tolower(state_abb) == "CZ"] <- "canal zone"
   state[tolower(state_abb) == "DC"] <- "district of columbia"
   state[tolower(state_abb) == "GU"] <- "guam"
@@ -10,8 +10,8 @@ make_state <- function(state_abb) {
 
 read.csv_system_file <- function(file) {
   data <- utils::read.csv(system.file("testdata",
-                               file,
-                               package = "fbi"))
+                                      file,
+                                      package = "fbi"))
   data$ori <- as.character(data$ori)
   return(data)
 }
@@ -20,6 +20,31 @@ clean_column_names <- function(.data) {
   names(.data) <- tolower(names(.data))
   names(.data) <- gsub("-", "_", names(.data))
   names(.data) <- gsub("^data_year$", "year", names(.data))
+
+
+  # Fix arrest column names
+  names(.data) <- gsub("^disorderly$", "disorderly_conduct", names(.data))
+  names(.data) <- gsub("^driving$", "dui", names(.data))
+  names(.data) <- gsub("^drug_abuse_gt$", "drug_grand_total", names(.data))
+  names(.data) <- gsub("^drug_poss_m$", "drug_poss_marijuana", names(.data))
+  names(.data) <- gsub("^drug_sales_m$", "drug_sales_marijuana", names(.data))
+  names(.data) <- gsub("^g_all$", "gambling_all_others", names(.data))
+  names(.data) <- gsub("^g_b$", "gambling_bookmaking", names(.data))
+  names(.data) <- gsub("^g_n$", "gambling_numbers", names(.data))
+  names(.data) <- gsub("^g_t$", "gambling_total", names(.data))
+  names(.data) <- gsub("^ht_c_s_a$", "human_trafficking_commercial_sex_traffic", names(.data))
+  names(.data) <- gsub("^ht_i_s$", "human_trafficking_servitude", names(.data))
+  names(.data) <- gsub("^liquor$", "liquor_laws", names(.data))
+  names(.data) <- gsub("^mvt$", "motor_vehicle_theft", names(.data))
+  names(.data) <- gsub("^offense_family$", "offense_against_family", names(.data))
+  names(.data) <- gsub("^prostitution$", "prostitution_total", names(.data))
+  names(.data) <- gsub("^prostitution_a_p_p$", "prostitution_assisting", names(.data))
+  names(.data) <- gsub("^prostitution_p$", "prostitution_performing", names(.data))
+  names(.data) <- gsub("^prostitution_p_p$", "prostitution_purchasing", names(.data))
+  names(.data) <- gsub("^sex_offense$", "other_sex_offenses", names(.data))
+
+
+
   .data$csv_header <- NULL
   return(.data)
 }
@@ -45,8 +70,8 @@ url_to_dataframe <- function(url) {
 
 prep_ucr_crime_test <- function(file_name, type = "crime") {
   data <- utils::read.csv(system.file("testdata",
-                                file_name,
-                                package = "fbi"))
+                                      file_name,
+                                      package = "fbi"))
   ori <- strsplit(gsub(".csv", "", file_name), "-")[[1]]
   ori <- gsub("_police", "", ori)
   crime <- paste0(ori[2:length(ori)], collapse = "_")
