@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set. — get_agency_crime • fbi</title>
+<title>All offenses available to get NIBRS data for. — ucr_arrest_offenses • fbi</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,9 @@
 
 
 
-<meta property="og:title" content="Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set. — get_agency_crime" />
-<meta property="og:description" content="Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set." />
+<meta property="og:title" content="All offenses available to get NIBRS data for. — ucr_arrest_offenses" />
+<meta property="og:description" content="This is a vector of strings with the names of every offense available
+to get arrest data for from the `get_arrest_demographics()` function." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,50 +101,32 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set.</h1>
+    <h1>All offenses available to get NIBRS data for.</h1>
     
-    <div class="hidden name"><code>get_agency_crime.Rd</code></div>
+    <div class="hidden name"><code>ucr_arrest_offenses.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set.</p>
+    <p>This is a vector of strings with the names of every offense available
+to get arrest data for from the `get_arrest_demographics()` function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_agency_crime</span>(<span class='no'>ori</span>, <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>())</pre>
+    <pre class="usage"><span class='no'>ucr_arrest_offenses</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>ori</th>
-      <td><p>A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.</p></td>
-    </tr>
-    <tr>
-      <th>key</th>
-      <td><p>A string containing your FBI's Crime Data Explorer API key</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data.frame with agency-level UCR crime data for selected agency.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <p>A vector with 47 elements:</p>
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <div class='dont-index'><p>Other UCR crime functions: <code><a href='get_estimated_arson.html'>get_estimated_arson</a></code>,
-  <code><a href='get_estimated_crime.html'>get_estimated_crime</a></code></p></div>
+    <p><a href='https://crime-data-explorer.fr.cloud.gov/api'>https://crime-data-explorer.fr.cloud.gov/api</a></p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>get_agency_crime</span>(<span class='st'>"AK0010100"</span>)
-}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
+      <li><a href="#format">Format</a></li>
+      <li><a href="#source">Source</a></li>
     </ul>
 
   </div>

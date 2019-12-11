@@ -27,7 +27,7 @@ get_arrest_count <- function(ori = NULL,
     start_year <- "monthly/1985"
   } else {
     start_year <- "all/1985"
-  }
+ }
 
   url <- make_url(url_section, start_year, key)
   url <- gsub("offense/agencies", "offense", url)
@@ -68,7 +68,7 @@ get_arrest_demographics <- function(ori = NULL,
   data <- data.frame()
   for (arrest_variable in c("male", "female", "race")) {
     url_section_temp <- paste0(url_section, "/", offense, "/", arrest_variable)
-    url <- make_url(url_section_temp, 1985, 2018, key)
+    url <- make_url(url_section_temp, 1985, key)
     url <- gsub("offense/agencies", "offense", url)
 
     temp <- url_to_dataframe(url)

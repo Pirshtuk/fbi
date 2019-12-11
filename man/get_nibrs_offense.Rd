@@ -33,3 +33,14 @@ Gets offense-level data from the FBI's National Incident-Based Reporting System 
 get_nibrs_offense(ori = "DE0010100")
 }
 }
+\seealso{
+Other NIBRS functions: \code{\link{get_nibrs_offender}},
+  \code{\link{get_nibrs_victim}},
+  \code{\link{list_nibrs_offender_variables}},
+  \code{\link{list_nibrs_offense_variables}},
+  \code{\link{list_nibrs_offenses}},
+  \code{\link{list_nibrs_victim_variables}},
+  \code{\link{list_regions}},
+  \code{\link{list_ucr_arrest_offenses}}
+}
+\concept{NIBRS functions}

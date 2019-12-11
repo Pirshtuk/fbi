@@ -15,6 +15,7 @@ Description: Uses the FBI's Crime Data API to get information about crime.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+URL: https://jacobkap.github.io/fbi/
 Suggests: 
     testthat (>= 2.1.0),
     covr

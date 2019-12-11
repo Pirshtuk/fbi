@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set. — get_agency_crime • fbi</title>
+<title>Get arrest data by arrestee demographic from the UCR's Arrests by Age, Sex, and Race data set. — get_arrest_demographics • fbi</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set. — get_agency_crime" />
-<meta property="og:description" content="Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set." />
+<meta property="og:title" content="Get arrest data by arrestee demographic from the UCR's Arrests by Age, Sex, and Race data set. — get_arrest_demographics" />
+<meta property="og:description" content="Get arrest data by arrestee demographic from the UCR's Arrests by Age, Sex, and Race data set." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,16 +100,17 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set.</h1>
+    <h1>Get arrest data by arrestee demographic from the UCR's Arrests by Age, Sex, and Race data set.</h1>
     
-    <div class="hidden name"><code>get_agency_crime.Rd</code></div>
+    <div class="hidden name"><code>get_arrest_demographics.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get agency-level crime data from the UCR's Offenses Known and Clearances by Arrest data set.</p>
+    <p>Get arrest data by arrestee demographic from the UCR's Arrests by Age, Sex, and Race data set.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_agency_crime</span>(<span class='no'>ori</span>, <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>())</pre>
+    <pre class="usage"><span class='fu'>get_arrest_demographics</span>(<span class='kw'>ori</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>region</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>offense</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -119,6 +120,20 @@
       <td><p>A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.</p></td>
     </tr>
     <tr>
+      <th>state_abb</th>
+      <td><p>String or vector of strings input for state abbreviation(s) to get data for.
+If NULL (default) returns national data. If `state_abb` and `region` both have values, will use return `region` input data.</p></td>
+    </tr>
+    <tr>
+      <th>region</th>
+      <td><p>String or vector of strings input for region name(s) to get data for. Please run `list_regions()`  to see all possible variables.</p></td>
+    </tr>
+    <tr>
+      <th>offense</th>
+      <td><p>A string or vector of strings with the offenses you want to scrape. If
+input is 'all' (default), returns data for all offenses. Please run `list_ucr_arrest_offenses()` to see all possible offenses.</p></td>
+    </tr>
+    <tr>
       <th>key</th>
       <td><p>A string containing your FBI's Crime Data Explorer API key</p></td>
     </tr>
@@ -126,23 +141,16 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame with agency-level UCR crime data for selected agency.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other UCR crime functions: <code><a href='get_estimated_arson.html'>get_estimated_arson</a></code>,
-  <code><a href='get_estimated_crime.html'>get_estimated_crime</a></code></p></div>
+    <p>A data.frame with the number of arrests by arrestee demographic for each crime-year in the jurisdiction.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>get_agency_crime</span>(<span class='st'>"AK0010100"</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>get_arrest_demographics</span>(<span class='kw'>ori</span> <span class='kw'>=</span> <span class='st'>"CA0010900"</span>, <span class='kw'>offense</span> <span class='kw'>=</span> <span class='st'>"robbery"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in make_url(url_section_temp, 1985, 2018, key): unused argument (key)</span></div><div class='input'><span class='fu'>get_arrest_demographics</span>(<span class='kw'>offense</span> <span class='kw'>=</span> <span class='st'>"robbery"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in make_url(url_section_temp, 1985, 2018, key): unused argument (key)</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
-      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

@@ -23,6 +23,7 @@ get_nibrs <- function(key = get_api_key(),
 #'
 #' @inheritParams get_agency_crime
 #' @inheritParams get_estimated_arson
+#' @family NIBRS functions
 #'
 #' @param offense
 #' A string or vector of strings with the offenses you want to scrape. If
@@ -59,6 +60,7 @@ get_nibrs_victim <- function(key = get_api_key(),
 #' Gets offender-level data from the FBI's National Incident-Based Reporting System (NIBRS)
 #'
 #' @inheritParams get_nibrs_victim
+#' @family NIBRS functions
 #'
 #' @param variable
 #' A string with the variable you want the data to be in. This is essentially the units you want returned (number of offenders by age, race, sex, etc.). By default returns total count of offenders Please run `list_nibrs_offender_variables()`  to see all possible variables.
@@ -92,6 +94,7 @@ get_nibrs_offender <- function(key = get_api_key(),
 #' Gets offense-level data from the FBI's National Incident-Based Reporting System (NIBRS)
 #'
 #' @inheritParams get_nibrs_victim
+#' @family NIBRS functions
 #'
 #' @param variable
 #' A string with the variable you want the data to be in. This is essentially the units you want returned (number of offenses by weapon used, race, bias motivation, etc.). By default returns total count of offenders Please run `list_nibrs_offense_variables()`  to see all possible variables.
@@ -124,6 +127,8 @@ get_nibrs_offense <- function(key = get_api_key(),
 
 #' Return a vector of all offenses in the NIBRS data.
 #'
+#' @family NIBRS functions
+#'
 #' @return
 #' A vector containing all permissible offenses to input to `get_nibrs_offenses()`,
 #' `get_nibrs_victim()`, and `get_nibrs_offender()`.`
@@ -132,83 +137,13 @@ get_nibrs_offense <- function(key = get_api_key(),
 #' @examples
 #' list_nibrs_offenses()
 list_nibrs_offenses <- function() {
-  return(c("aggravated-assault",
-           "all-offenses",
-           "all-other-larceny",
-           "all-other-offenses",
-           "animal-cruelty",
-           "arson",
-           "assault-offenses",
-           "assisting-or-promoting-prostitution",
-           "bad-checks",
-           "betting",
-           "bribery",
-           "burglary-breaking-and-entering",
-           "counterfeiting-forgery",
-           "credit-card-automated-teller-machine-fraud",
-           "crime-against-person",
-           "crime-against-property",
-           "crime-against-society",
-           "curfew-loitering-vagrancy-violations",
-           "destruction-damage-vandalism-of-property",
-           "driving-under-the-influence",
-           "drug-equipment-violations", # GIVE SAME RESULTS AS NARCOTIC OFFENSES
-           "drug-violations", # GIVES EQUIPMENT VIOLATIONS RESULT
-           "drugs-narcotic-offenses", # GIVE SAME RESULTS AS EQUIPMENT VIOLATIONS
-           "drunkenness",
-           "embezzlement",
-           "extortion-blackmail",
-           "false-pretenses-swindle-confidence-game",
-           "fondling",
-           "fraud-offenses",
-           "gambling-equipment-violation",
-           "gambling-offenses",
-           "hacking-computer-invasion",
-           "homicide-offenses",
-           "human-trafficking-commerical-involuntary-servitude",
-           "human-trafficking-commerical-sex-acts",
-           "human-trafficking-offenses",
-           "identity-theft",
-           "impersonation",
-           "incest",
-           "intimidation",
-           "justifiable-homicide",
-           "kidnapping-abduction",
-           "larceny-theft-offenses",
-           "liquor-law-violations",
-           "motor-vehicle-theft",
-           "murder-and-nonnegligent-manslaughter",
-           "negligent-manslaughter",
-           #  "not-specified",
-           "operating-promoting-assiting-gambling",
-           "peeping-tom,pocket-picking",
-           "pornography-obscence-material",
-           "prostitution",
-           "prostitution-offenses",
-           "purchasing-prostitution",
-           "purse-snatching",
-           "rape",
-           "robbery",
-           "sex-offenses",
-           "sex-offenses-non-forcible",
-           "sexual-assult-with-an-object",
-           "shoplifting",
-           "simple-assault",
-           "sodomy",
-           "sports-tampering",
-           "statutory-rape",
-           "stolen-property-offenses",
-           "theft-from-building",
-           "theft-from-coin-operated-machine-or-device",
-           "theft-from-motor-vehicle",
-           "theft-of-motor-vehicle-parts-or-accessories",
-           "weapon-law-violation",
-           "welfare-fraud",
-           "wire-fraud"))
+  return(fbi::nibrs_offenses)
 }
 
 
 #' Returns a vector of all `variable` parameter options for `get_nibrs_victim()`.
+#'
+#' @family NIBRS functions
 #'
 #' @return
 #' A vector of all `variable` parameter options for `get_nibrs_victim()`.
@@ -217,16 +152,12 @@ list_nibrs_offenses <- function() {
 #' @examples
 #' list_nibrs_victim_variables()
 list_nibrs_victim_variables <- function() {
-  return(sort(c("age",
-                "count",
-                "ethnicity",
-                "race",
-                "sex",
-                "relationship",
-                "location")))
+  return(fbi::nibrs_victim_variables)
 }
 
 #' Returns a vector of all `variable` parameter options for `get_nibrs_offender()`.
+#'
+#' @family NIBRS functions
 #'
 #' @return
 #' A vector of all `variable` parameter options for `get_nibrs_offender()`.
@@ -235,14 +166,12 @@ list_nibrs_victim_variables <- function() {
 #' @examples
 #' list_nibrs_offender_variables()
 list_nibrs_offender_variables <- function() {
-  return(c("age",
-           "count",
-           "ethnicity",
-           "race",
-           "sex"))
+  return(fbi::nibrs_offender_variables)
 }
 
 #' Returns a vector of all `variable` parameter options for `get_nibrs_offense()`.
+#'
+#' @family NIBRS functions
 #'
 #' @return
 #' A vector of all `variable` parameter options for `get_nibrs_offense()`.
@@ -251,18 +180,13 @@ list_nibrs_offender_variables <- function() {
 #' @examples
 #' list_nibrs_offender_variables()
 list_nibrs_offense_variables <- function() {
-  return(sort(c("count",
-                "weapons",
-                "linkedoffense",
-                "suspectusing",
-                "criminal_activity",
-                "property_recovered",
-                "property_stolen",
-                "bias")))
+  return(fbi::nibrs_offense_variables)
 }
 
 
 #' Return a vector of all offenses in the UCR Arrest data.
+#'
+#' @family NIBRS functions
 #'
 #' @return
 #' A vector containing all permissible offenses to input to `get_agency_arrest()`.
@@ -271,56 +195,12 @@ list_nibrs_offense_variables <- function() {
 #' @examples
 #' list_ucr_arrest_offenses()
 list_ucr_arrest_offenses <- function() {
-  return(c("aggravated-assault",
-           "all-other-offenses",
-           "arson",
-           "burglary",
-           "curfew",
-           "disorderly-conduct",
-           "dui",
-           "drug-grand-total",
-           "drug-possession-marijuana",
-           "drug-possession-opium",
-           "drug-possession-other",
-           "drug-possession-subtotal",
-           "drug-possession-synthetic",
-           "drug-sales-marijuana",
-           "drug-sales-opium",
-           "drug-sales-other",
-           "drug-sales-subtotal",
-           "drug-sales-synthetic",
-           "drunkenness",
-           "embezzlement",
-           "forgery",
-           "fraud",
-           "gambling-all-other",
-           "gambling-bookmaking",
-           "gambling-numbers",
-           "gambling-total",
-           "human-trafficking-commercial",
-           "human-trafficking-servitude",
-           "larceny",
-           "liqour-laws", # MISPELLED
-           "motor-vehcile-theft", # MISPELLED
-           "murder",
-           "offense-against-family",
-           "prostitution",
-           "prostitution-assisting",
-           "prostitution-prostitution",
-           "prostitution-purchasing",
-           "rape",
-           "robbery",
-           "runaway",
-           "sex-offenses",
-           "simple-assault",
-           "stolen-property",
-           "suspicion",
-           "vagrancy",
-           "vandalism",
-           "weapons"))
+  return(fbi::ucr_arrest_offenses)
 }
 
 #' Return a vector of all regions choices.
+#'
+#' @family NIBRS functions
 #'
 #' @return
 #' A vector of all regions choices.
@@ -329,10 +209,5 @@ list_ucr_arrest_offenses <- function() {
 #' @examples
 #' list_regions()
 list_regions <- function() {
-  return(c("U.S. Territories",
-           "Northeast",
-           "Midwest",
-           "South",
-           "West",
-           "Other"))
+  return(fbi::regions)
 }
