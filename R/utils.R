@@ -143,7 +143,9 @@ srs_long_to_wide <- function(.data) {
                                           "data_year",
                                           "offense"))
   .data <- data.table::dcast(.data,
-                             ori + state_abbr + data_year ~ offense + variable,
-                             measure.var = c("value"))
+                             formula = ori + state_abbr + data_year ~ offense + variable,
+                             measure.var = c("value"),
+                             fun.aggregate = mean,
+                             fill = NA)
   return(.data)
 }
