@@ -36,7 +36,7 @@ get_police_employment <- function(ori = NULL,
   names(data) <- gsub("_officer$", "_officers", names(data))
   names(data) <- gsub("total_pe$", "total_police_employees", names(data))
   names(data) <- gsub("pe_ct_per_1000$", "police_employees_per_1000_pop", names(data))
-  data$officers_total <- data$female_officers + data$male_officers
+  data$officers_total  <- data$female_officers + data$male_officers
   data$employees_total <- data$officers_total + data$civilians_total
 
 

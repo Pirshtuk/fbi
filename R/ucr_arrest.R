@@ -11,8 +11,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' get_arrest_count(ori = "CA0010900")
 #' get_arrest_count()
+#' }
 get_arrest_count <- function(ori = NULL,
                              state_abb = NULL,
                              region = NULL,
@@ -27,13 +29,21 @@ get_arrest_count <- function(ori = NULL,
     start_year <- "monthly/1985"
   } else {
     start_year <- "all/1985"
- }
+  }
 
   url <- make_url(url_section, start_year, key)
   url <- gsub("offense/agencies", "offense", url)
 
   data <- url_to_dataframe(url)
   data <- clean_column_names(data)
+
+  if (!is.null(ori)) {
+    data$ori <- ori
+    data <- data[, c("ori", "year",
+                     names(data)[which(!names(data) %in% c("year", "ori"))])]
+  }
+  data <- data[order(data$year, decreasing = TRUE), ]
+  rownames(data) <- 1:nrow(data)
   return(data)
 }
 
@@ -84,7 +94,13 @@ get_arrest_demographics <- function(ori = NULL,
       data <- merge(data, temp, by = "year")
     }
   }
-
+  if (!is.null(ori)) {
+    data$ori <- ori
+    data <- data[, c("ori", "year",
+                     names(data)[which(!names(data) %in% c("year", "ori"))])]
+  }
+  data <- data[order(data$year, decreasing = TRUE), ]
+  rownames(data) <- 1:nrow(data)
   return(data)
 }
 

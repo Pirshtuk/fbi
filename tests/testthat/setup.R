@@ -18,6 +18,40 @@ police_matching_columns <- c("year",
                              "officers_total",
                              "employees_total")
 
+arrest_matching_columns <- c("ori",
+                             "year",
+                             "aggravated_assault",
+                             "all_other_offenses",
+                             "arson",
+                             "burglary",
+                             "curfew",
+                             "disorderly_conduct",
+                             "dui",
+                             "drug_grand_total",
+                             "drunkness",
+                             "embezzlement",
+                             "forgery",
+                             "fraud",
+                             "gambling_total",
+                             "human_trafficking_commercial_sex_traffic",
+                             "human_trafficking_servitude",
+                             "larceny",
+                             "liquor_laws",
+                             "manslaughter",
+                             "motor_vehicle_theft",
+                             "murder",
+                             "offense_against_family",
+                             "prostitution_total",
+                             "rape",
+                             "robbery",
+                             "other_sex_offenses",
+                             "simple_assault",
+                             "stolen_property",
+                             "suspicion",
+                             "vagrancy",
+                             "vandalism",
+                             "weapons")
+
 crime_matching_columns <- c("year",
                             "ori",
                             "violent_crime_actual",
@@ -41,7 +75,13 @@ crime_matching_columns <- c("year",
                             "motor_vehicle_theft_actual",
                             "motor_vehicle_theft_cleared")
 
-
+fix_arrest_test <- function(ori) {
+  real <- get_arrest_count(ori)[, arrest_matching_columns]
+  test <- read.csv_system_file(paste0(ori, '_arrest_count.csv'))
+  test <- test[test$year %in% real$year, ]
+  rownames(test) <- 1:nrow(test)
+  return(test)
+}
 
 #
 #

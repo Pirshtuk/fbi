@@ -13,6 +13,7 @@ read.csv_system_file <- function(file) {
                                       file,
                                       package = "fbi"))
   data$ori <- as.character(data$ori)
+  rownames(data) <- 1:nrow(data)
   return(data)
 }
 
