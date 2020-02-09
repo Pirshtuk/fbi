@@ -25,4 +25,4 @@ Imports:
     data.table,
     datasets,
     utils
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2

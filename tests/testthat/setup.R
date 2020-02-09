@@ -1,29 +1,4 @@
-# From Crime Data Explorer site
-# ucr_estimates <- system.file("testdata",
-#                              "estimated_crimes_1979_2018.csv",
-#                              package = "fbi")
-# state_level_estimated_crime <- read.csv(ucr_estimates)
-# state_name <- c(state.name, "District of Columbia")
-# state_abb   <- c(state.abb, "DC")
-# state_level_estimated_crime$state <- state_name[match(state_level_estimated_crime$state_abbr,state_abb)]
-# state_level_estimated_crime$agency <- paste(state_level_estimated_crime$state, "State-Level Estimate")
-# state_level_estimated_crime$agency[is.na(state_level_estimated_crime$state)] <- "United States - National Estimate"
-# state_level_estimated_crime$state[is.na(state_level_estimated_crime$state)] <- "United States"
-# names(state_level_estimated_crime) <- gsub("rape_legacy", "rape", names(state_level_estimated_crime))
-# # state_level_estimated_crime$rape[!is.na(state_level_estimated_crime$rape_revised)] <-
-# #   state_level_estimated_crime$rape_revised[!is.na(state_level_estimated_crime$rape_revised)]
-# state_level_estimated_crime[] <- sapply(state_level_estimated_crime, as.character)
-# state_level_estimated_crime <- state_level_estimated_crime[order(state_level_estimated_crime$year,
-#                                                    decreasing = TRUE), ]
-# state_level_estimated_crime$rape[state_level_estimated_crime$year %in% 2017:2018] <- NA
-# names(state_level_estimated_crime) <- gsub("^rape$", "rape_legacy",
-#                                            names(state_level_estimated_crime))
-# state_level_estimated_crime$caveats <- NULL
-# state_level_estimated_crime$agency  <- NULL
-# state_level_estimated_crime[c(1, 3:13)] <- sapply(state_level_estimated_crime[c(1, 3:13)], as.numeric)
-# state_level_estimated_crime <- state_level_estimated_crime[, c(2, 14, 1, 3:13)]
 
-#save(state_level_estimated_crime, file = "state_level_estimated_crime.rda")
 
 load(system.file("testdata",
                  "state_level_estimated_crime.rda",

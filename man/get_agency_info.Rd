@@ -4,8 +4,7 @@
 \alias{get_agency_info}
 \title{Get information about the selected agency}
 \usage{
-get_agency_info(agency, state = NULL, ori_only = FALSE,
-  exact_match = TRUE)
+get_agency_info(agency, state = NULL, ori_only = FALSE, exact_match = TRUE)
 }
 \arguments{
 \item{agency}{A string or vector of strings with the name of the agency you want to lookup (capitalized is ignored).}

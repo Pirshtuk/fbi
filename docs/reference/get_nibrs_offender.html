@@ -109,8 +109,14 @@
     <p>Gets offender-level data from the FBI's National Incident-Based Reporting System (NIBRS)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_nibrs_offender</span>(<span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>(), <span class='kw'>offense</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
-  <span class='kw'>variable</span> <span class='kw'>=</span> <span class='st'>"count"</span>, <span class='kw'>ori</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>region</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>get_nibrs_offender</span>(
+  <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>(),
+  <span class='kw'>offense</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
+  <span class='kw'>variable</span> <span class='kw'>=</span> <span class='st'>"count"</span>,
+  <span class='kw'>ori</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>region</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -148,14 +154,15 @@ If NULL (default) returns national data. If `state_abb` and `region` both have v
     <p>A data.frame of NIBRS offender data.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other NIBRS functions: <code><a href='get_nibrs_offense.html'>get_nibrs_offense</a></code>,
-  <code><a href='get_nibrs_victim.html'>get_nibrs_victim</a></code>,
-  <code><a href='list_nibrs_offender_variables.html'>list_nibrs_offender_variables</a></code>,
-  <code><a href='list_nibrs_offense_variables.html'>list_nibrs_offense_variables</a></code>,
-  <code><a href='list_nibrs_offenses.html'>list_nibrs_offenses</a></code>,
-  <code><a href='list_nibrs_victim_variables.html'>list_nibrs_victim_variables</a></code>,
-  <code><a href='list_regions.html'>list_regions</a></code>,
-  <code><a href='list_ucr_arrest_offenses.html'>list_ucr_arrest_offenses</a></code></p></div>
+    <div class='dont-index'><p>Other NIBRS functions: 
+<code><a href='get_nibrs_offense.html'>get_nibrs_offense</a>()</code>,
+<code><a href='get_nibrs_victim.html'>get_nibrs_victim</a>()</code>,
+<code><a href='list_nibrs_offender_variables.html'>list_nibrs_offender_variables</a>()</code>,
+<code><a href='list_nibrs_offense_variables.html'>list_nibrs_offense_variables</a>()</code>,
+<code><a href='list_nibrs_offenses.html'>list_nibrs_offenses</a>()</code>,
+<code><a href='list_nibrs_victim_variables.html'>list_nibrs_victim_variables</a>()</code>,
+<code><a href='list_regions.html'>list_regions</a>()</code>,
+<code><a href='list_ucr_arrest_offenses.html'>list_ucr_arrest_offenses</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {

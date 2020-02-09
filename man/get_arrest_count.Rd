@@ -4,8 +4,13 @@
 \alias{get_arrest_count}
 \title{Get arrest data from the UCR's Arrests by Age, Sex, and Race data set.}
 \usage{
-get_arrest_count(ori = NULL, state_abb = NULL, region = NULL,
-  monthly = FALSE, key = get_api_key())
+get_arrest_count(
+  ori = NULL,
+  state_abb = NULL,
+  region = NULL,
+  monthly = FALSE,
+  key = get_api_key()
+)
 }
 \arguments{
 \item{ori}{A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.}

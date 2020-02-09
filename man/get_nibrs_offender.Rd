@@ -4,8 +4,14 @@
 \alias{get_nibrs_offender}
 \title{Gets offender-level data from the FBI's National Incident-Based Reporting System (NIBRS)}
 \usage{
-get_nibrs_offender(key = get_api_key(), offense = "all",
-  variable = "count", ori = NULL, region = NULL, state_abb = NULL)
+get_nibrs_offender(
+  key = get_api_key(),
+  offense = "all",
+  variable = "count",
+  ori = NULL,
+  region = NULL,
+  state_abb = NULL
+)
 }
 \arguments{
 \item{key}{A string containing your FBI's Crime Data Explorer API key}
@@ -34,13 +40,14 @@ get_nibrs_offender(ori = "DE0010100")
 }
 }
 \seealso{
-Other NIBRS functions: \code{\link{get_nibrs_offense}},
-  \code{\link{get_nibrs_victim}},
-  \code{\link{list_nibrs_offender_variables}},
-  \code{\link{list_nibrs_offense_variables}},
-  \code{\link{list_nibrs_offenses}},
-  \code{\link{list_nibrs_victim_variables}},
-  \code{\link{list_regions}},
-  \code{\link{list_ucr_arrest_offenses}}
+Other NIBRS functions: 
+\code{\link{get_nibrs_offense}()},
+\code{\link{get_nibrs_victim}()},
+\code{\link{list_nibrs_offender_variables}()},
+\code{\link{list_nibrs_offense_variables}()},
+\code{\link{list_nibrs_offenses}()},
+\code{\link{list_nibrs_victim_variables}()},
+\code{\link{list_regions}()},
+\code{\link{list_ucr_arrest_offenses}()}
 }
 \concept{NIBRS functions}

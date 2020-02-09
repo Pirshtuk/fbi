@@ -23,7 +23,8 @@ get_agency_crime("AK0010100")
 }
 }
 \seealso{
-Other UCR crime functions: \code{\link{get_estimated_arson}},
-  \code{\link{get_estimated_crime}}
+Other UCR crime functions: 
+\code{\link{get_estimated_arson}()},
+\code{\link{get_estimated_crime}()}
 }
 \concept{UCR crime functions}

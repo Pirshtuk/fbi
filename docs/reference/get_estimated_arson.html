@@ -109,8 +109,7 @@
     <p>Get state-, region- or national-level estimated arson data from the UCR's Offenses Known and Clearances by Arrest data set.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_estimated_arson</span>(<span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>region</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>())</pre>
+    <pre class="usage"><span class='fu'>get_estimated_arson</span>(<span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>region</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -135,8 +134,9 @@ If NULL (default) returns national data. If `state_abb` and `region` both have v
     <p>A data.frame with state-level estimated UCR arson data for selected state</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other UCR crime functions: <code><a href='get_agency_crime.html'>get_agency_crime</a></code>,
-  <code><a href='get_estimated_crime.html'>get_estimated_crime</a></code></p></div>
+    <div class='dont-index'><p>Other UCR crime functions: 
+<code><a href='get_agency_crime.html'>get_agency_crime</a>()</code>,
+<code><a href='get_estimated_crime.html'>get_estimated_crime</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {

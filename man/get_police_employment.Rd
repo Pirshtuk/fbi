@@ -4,8 +4,12 @@
 \alias{get_police_employment}
 \title{Get agency-, state-, region-, or national-level police staffing data.}
 \usage{
-get_police_employment(ori = NULL, state_abb = NULL, region = NULL,
-  key = get_api_key())
+get_police_employment(
+  ori = NULL,
+  state_abb = NULL,
+  region = NULL,
+  key = get_api_key()
+)
 }
 \arguments{
 \item{ori}{A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.}

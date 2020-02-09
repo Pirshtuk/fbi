@@ -1,5 +1,6 @@
 
 test_that("Agency-level UCR police employee data works", {
+  skip_on_cran()
   expect_equal(get_police_employment('AL0100200')[, police_matching_columns],
                prep_ucr_crime_test('AL0100200_police-employment-breakout.csv',
                                    type = 'police'))
