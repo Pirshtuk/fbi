@@ -21,7 +21,11 @@ get_arrest_count <- function(ori = NULL,
                              monthly = FALSE,
                              key = get_api_key()) {
 
-  url_section <- combine_url_section("data/arrest/agencies/offense",
+  url_part <- "data/arrest/agencies/offense"
+  if (is.null(ori) & is.null(state_abb) & is.null(region)) {
+    url_part <- "data/arrest"
+  }
+  url_section <- combine_url_section(url_part,
                                      ori = ori,
                                      state_abb = state_abb,
                                      region_name = region)
@@ -33,6 +37,7 @@ get_arrest_count <- function(ori = NULL,
 
   url <- make_url(url_section, start_year, key)
   url <- gsub("offense/agencies", "offense", url)
+  url <- gsub("national", "national/offense", url)
 
   data <- url_to_dataframe(url)
   data <- clean_column_names(data)
