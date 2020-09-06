@@ -31,6 +31,8 @@ A data.frame with the number of arrests for each crime-year in the jurisdiction.
 Get arrest data from the UCR's Arrests by Age, Sex, and Race data set.
 }
 \examples{
+\dontrun{
 get_arrest_count(ori = "CA0010900")
 get_arrest_count()
+}
 }

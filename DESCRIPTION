@@ -1,5 +1,5 @@
 Package: fbi
-Title: A Client for the FBI's Crime Data API <https://crime-data-explorer.fr.cloud.gov/api>
+Title: R Wrapper for the FBI's Crime Data API <https://crime-data-explorer.fr.cloud.gov/api>
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Jacob",
@@ -25,4 +25,4 @@ Imports:
     data.table,
     datasets,
     utils
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1

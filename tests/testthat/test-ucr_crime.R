@@ -25,8 +25,6 @@ test_that("Agency-level UCR data works", {
                read.csv_system_file('AK0010100_combined.csv'))
   expect_equal(get_agency_crime('AL0210200')[, crime_matching_columns],
                read.csv_system_file('AL0210200_combined.csv'))
-  expect_equal(get_agency_crime('AR0230600')[, crime_matching_columns],
-               read.csv_system_file('AR0230600_combined.csv'))
   expect_equal(get_agency_crime('AR0600500')[, crime_matching_columns],
                read.csv_system_file('AR0600500_combined.csv'))
   expect_equal(get_agency_crime('AZ0072300')[, crime_matching_columns],
@@ -49,28 +47,10 @@ test_that("Agency-level UCR data works", {
                read.csv_system_file('CA0431300_combined.csv'))
   expect_equal(get_agency_crime('CA0470500')[, crime_matching_columns],
                read.csv_system_file('CA0470500_combined.csv'))
-  expect_equal(get_agency_crime('CO0020100')[, crime_matching_columns],
-               read.csv_system_file('CO0020100_combined.csv'))
-  expect_equal(get_agency_crime('CT0000200')[, crime_matching_columns],
-               read.csv_system_file('CT0000200_combined.csv'))
-  expect_equal(get_agency_crime('FL0130000')[, crime_matching_columns],
-               read.csv_system_file('FL0130000_combined.csv'))
-  expect_equal(get_agency_crime('FL0160200')[, crime_matching_columns],
-               read.csv_system_file('FL0160200_combined.csv'))
-  expect_equal(get_agency_crime('FL0229000')[, crime_matching_columns],
-               read.csv_system_file('FL0229000_combined.csv'))
-  expect_equal(get_agency_crime('FL0290000')[, crime_matching_columns],
-               read.csv_system_file('FL0290000_combined.csv'))
-  expect_equal(get_agency_crime('FL0350800')[, crime_matching_columns],
-               read.csv_system_file('FL0350800_combined.csv'))
   expect_equal(get_agency_crime('GA1440000')[, crime_matching_columns],
                read.csv_system_file('GA1440000_combined.csv'))
   expect_equal(get_agency_crime('GA1560100')[, crime_matching_columns],
                read.csv_system_file('GA1560100_combined.csv'))
-  expect_equal(get_agency_crime('HI0020000')[, crime_matching_columns],
-               read.csv_system_file('HI0020000_combined.csv'))
-  expect_equal(get_agency_crime('IA0690100')[, crime_matching_columns],
-               read.csv_system_file('IA0690100_combined.csv'))
   expect_equal(get_agency_crime('IL0460000')[, crime_matching_columns],
                read.csv_system_file('IL0460000_combined.csv'))
   expect_equal(get_agency_crime('IL0630400')[, crime_matching_columns],
@@ -95,8 +75,6 @@ test_that("Agency-level UCR data works", {
                read.csv_system_file('LA0190100_combined.csv'))
   expect_equal(get_agency_crime('MA0090700')[, crime_matching_columns],
                read.csv_system_file('MA0090700_combined.csv'))
-  expect_equal(get_agency_crime('MD0160400')[, crime_matching_columns],
-               read.csv_system_file('MD0160400_combined.csv'))
   expect_equal(get_agency_crime('MN0730600')[, crime_matching_columns],
                read.csv_system_file('MN0730600_combined.csv'))
   expect_equal(get_agency_crime('MO0956200')[, crime_matching_columns],
@@ -107,8 +85,6 @@ test_that("Agency-level UCR data works", {
                read.csv_system_file('MS0250000_combined.csv'))
   expect_equal(get_agency_crime('NB0710000')[, crime_matching_columns],
                read.csv_system_file('NB0710000_combined.csv'))
-  expect_equal(get_agency_crime('NBNSP2000')[, crime_matching_columns],
-               read.csv_system_file('NBNSP2000_combined.csv'))
   expect_equal(get_agency_crime('NC0030000')[, crime_matching_columns],
                read.csv_system_file('NC0030000_combined.csv'))
   expect_equal(get_agency_crime('NC0460200')[, crime_matching_columns],
@@ -117,8 +93,6 @@ test_that("Agency-level UCR data works", {
                read.csv_system_file('NC0600100_combined.csv'))
   expect_equal(get_agency_crime('NC0670300')[, crime_matching_columns],
                read.csv_system_file('NC0670300_combined.csv'))
-  expect_equal(get_agency_crime('NH008010X')[, crime_matching_columns],
-               read.csv_system_file('NH008010X_combined.csv'))
   expect_equal(get_agency_crime('NJ0024600')[, crime_matching_columns],
                read.csv_system_file('NJ0024600_combined.csv'))
   expect_equal(get_agency_crime('NJ0121300')[, crime_matching_columns],
@@ -167,40 +141,24 @@ test_that("Agency-level UCR data works", {
                read.csv_system_file('SC041SP00_combined.csv'))
   expect_equal(get_agency_crime('SD0620200')[, crime_matching_columns],
                read.csv_system_file('SD0620200_combined.csv'))
-  expect_equal(get_agency_crime('TN0570000')[, crime_matching_columns],
-               read.csv_system_file('TN0570000_combined.csv'))
   expect_equal(get_agency_crime('TX0151100')[, crime_matching_columns],
                read.csv_system_file('TX0151100_combined.csv'))
-  expect_equal(get_agency_crime('TX0610600')[, crime_matching_columns],
-               read.csv_system_file('TX0610600_combined.csv'))
   expect_equal(get_agency_crime('TX0770100')[, crime_matching_columns],
                read.csv_system_file('TX0770100_combined.csv'))
   expect_equal(get_agency_crime('TX1010000')[, crime_matching_columns],
                read.csv_system_file('TX1010000_combined.csv'))
-  expect_equal(get_agency_crime('TX1016100')[, crime_matching_columns],
-               read.csv_system_file('TX1016100_combined.csv'))
   expect_equal(get_agency_crime('TX2270100')[, crime_matching_columns],
                read.csv_system_file('TX2270100_combined.csv'))
   expect_equal(get_agency_crime('TX2300300')[, crime_matching_columns],
                read.csv_system_file('TX2300300_combined.csv'))
-  expect_equal(get_agency_crime('TX2490000')[, crime_matching_columns],
-               read.csv_system_file('TX2490000_combined.csv'))
-  expect_equal(get_agency_crime('TXDPD0000')[, crime_matching_columns],
-               read.csv_system_file('TXDPD0000_combined.csv'))
-  expect_equal(get_agency_crime('TXHPD0000')[, crime_matching_columns],
-               read.csv_system_file('TXHPD0000_combined.csv'))
   expect_equal(get_agency_crime('TXSPD0000')[, crime_matching_columns],
                read.csv_system_file('TXSPD0000_combined.csv'))
-  expect_equal(get_agency_crime('VA0290100')[, crime_matching_columns],
-               read.csv_system_file('VA0290100_combined.csv'))
   expect_equal(get_agency_crime('VA0510100')[, crime_matching_columns],
                read.csv_system_file('VA0510100_combined.csv'))
   expect_equal(get_agency_crime('VA0820500')[, crime_matching_columns],
                read.csv_system_file('VA0820500_combined.csv'))
   expect_equal(get_agency_crime('WI0540800')[, crime_matching_columns],
                read.csv_system_file('WI0540800_combined.csv'))
-  expect_equal(get_agency_crime('WV0060200')[, crime_matching_columns],
-               read.csv_system_file('WV0060200_combined.csv'))
   expect_equal(get_agency_crime('WV0140500')[, crime_matching_columns],
                read.csv_system_file('WV0140500_combined.csv'))
 

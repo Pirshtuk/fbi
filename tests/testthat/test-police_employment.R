@@ -46,9 +46,7 @@ test_that("Agency-level UCR police employee data works", {
   expect_equal(get_police_employment('FL0130000')[, police_matching_columns],
                prep_ucr_crime_test('FL0130000_police-employment-breakout.csv',
                                    type = 'police'))
-  expect_equal(get_police_employment('FL0160200')[, police_matching_columns],
-               prep_ucr_crime_test('FL0160200_police-employment-breakout.csv',
-                                   type = 'police'))
+
   expect_equal(get_police_employment('FL0290000')[, police_matching_columns],
                prep_ucr_crime_test('FL0290000_police-employment-breakout.csv',
                                    type = 'police'))
