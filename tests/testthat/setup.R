@@ -1,10 +1,6 @@
-
-
 load(system.file("testdata",
                  "state_level_estimated_crime.rda",
                  package = "fbi"))
-# Dummy API key from the API documentation.
-set_api_key("iiHnOKfno2Mgkt5AynpvPpUQTEyxE77jo1RU8PIv")
 
 
 police_matching_columns <- c("year",

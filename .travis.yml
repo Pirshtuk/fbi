@@ -12,3 +12,7 @@ r_packages:
 
 after_success:
   - Rscript -e 'library(covr); codecov()'
+
+
+env:
+  - FBI_API_KEY = "dw3MIpdbpWC8AyD5naDpjXZaEgFenyiGh3y0JP1a"
