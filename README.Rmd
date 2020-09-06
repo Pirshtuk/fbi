@@ -28,3 +28,19 @@ The goal of `fbi` is to ...
 ## Installation
 
 You can install the released version of fbi from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("fbi")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("jacobkap/fbi")
+```
+## Usage
+
+```{r example}
+library(fbi)
+```

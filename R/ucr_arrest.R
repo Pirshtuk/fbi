@@ -67,8 +67,10 @@ get_arrest_count <- function(ori = NULL,
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' get_arrest_demographics(ori = "CA0010900", offense = "robbery")
 #' get_arrest_demographics(offense = "robbery")
+#' }
 get_arrest_demographics <- function(ori = NULL,
                                     state_abb = NULL,
                                     region = NULL,

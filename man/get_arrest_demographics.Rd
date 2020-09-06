@@ -32,6 +32,8 @@ A data.frame with the number of arrests by arrestee demographic for each crime-y
 Get arrest data by arrestee demographic from the UCR's Arrests by Age, Sex, and Race data set.
 }
 \examples{
+\dontrun{
 get_arrest_demographics(ori = "CA0010900", offense = "robbery")
 get_arrest_demographics(offense = "robbery")
+}
 }
