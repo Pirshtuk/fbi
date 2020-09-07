@@ -1,6 +1,7 @@
 
 
 test_that("State-level UCR crime estimates works", {
+  skip_on_cran()
   # Removes arson column and state number column
   expect_equal(get_estimated_crime(state_abb = "CA")[, -c(3, 16)],
                ca_estimate_crime)
