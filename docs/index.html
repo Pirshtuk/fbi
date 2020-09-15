@@ -54,7 +54,14 @@
   <a href="news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/jacobkap/fbi/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -71,26 +78,38 @@
 <a href="#overview" class="anchor"></a>Overview</h1></div>
 <!-- badges: start -->
 
-<p>The goal of <code>fbi</code> is to …</p>
+<p>The goal of <code>fbi</code> is to connect to the FBI’s <a href="crime-data-explorer.fr.cloud.gov/">Crime Data Explorer</a> to get crime data (UCR and NIBRS) from their API.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of fbi from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"fbi"</span>)</pre></div>
-<p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="co"># install.packages("devtools")</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"jacobkap/fbi"</span>)</pre></div>
+<p>This package is not on CRAN yet.</p>
+<p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="co"># install.packages("devtools")</span>
+<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"jacobkap/fbi"</span>)
+</pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">fbi</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://jacobkap.github.io/fbi">fbi</a></span>)
+</pre></div>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="license">
+    <div class="links">
+<h2>Links</h2>
+<ul class="list-unstyled">
+<li>Browse source code at <br><a href="https://github.com/jacobkap/fbi/">https://​github.com/​jacobkap/​fbi/​</a>
+</li>
+<li>Report a bug at <br><a href="https://github.com/jacobkap/fbi/issues">https://​github.com/​jacobkap/​fbi/​issues</a>
+</li>
+</ul>
+</div>
+<div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
@@ -110,10 +129,8 @@
 <li><a href="https://cran.r-project.org/package=fbi.png"><img src="https://www.r-pkg.org/badges/version/fbi" alt="CRAN_Status_Badge"></a></li>
 <li><a href="https://travis-ci.org/jacobkap/fbi"><img src="https://travis-ci.org/jacobkap/fbi.svg?branch=master" alt="Travis-CI Build Status"></a></li>
 <li><a href="https://ci.appveyor.com/project/jacobkap/fbi"><img src="https://ci.appveyor.com/api/projects/status/github/jacobkap/fbi?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
-<li><a href="https://codecov.io/github/jacobkap/fbi?branch=master"><img src="https://codecov.io/gh/jacobkap/fbi/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
 <li><a href="https://cran.r-project.org/package=fbi"><img src="http://cranlogs.r-pkg.org/badges/grand-total/fbi?color=blue"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://cran.r-project.org/package=fbi"><img src="http://cranlogs.r-pkg.org/badges/grand-total/fbi?color=blue"></a></li>
 </ul>
 </div>
 </div>
@@ -125,7 +142,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

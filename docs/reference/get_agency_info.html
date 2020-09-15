@@ -92,7 +92,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/jacobkap/fbi/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -107,7 +112,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get information about the selected agency</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/jacobkap/fbi/blob/master/R/lookups.R'><code>R/lookups.R</code></a></small>
     <div class="hidden name"><code>get_agency_info.Rd</code></div>
     </div>
 
@@ -115,7 +120,7 @@
     <p>Get information about the selected agency including the 9-digit ORI, geographic information, type of agency, and whether they report to NIBRS.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_agency_info</span>(<span class='no'>agency</span>, <span class='kw'>state</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ori_only</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>exact_match</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>get_agency_info</span>(<span class='kw'>agency</span>, state = <span class='kw'>NULL</span>, ori_only = <span class='fl'>FALSE</span>, exact_match = <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -144,7 +149,8 @@ uses `grep()` to find agencies with similar names to inputted agency.</p></td>
     <p>A data.frame with information about the agency - including ORI code and geographic information. The agency will have as many rows as agencies matched from the `agency` input.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_agency_info</span>(<span class='st'>"Oakland Police Department"</span>)</div><div class='output co'>#&gt;             ori               agency_name agency_type_name   state_name
+    <pre class="examples"><div class='input'><span class='fu'>get_agency_info</span>(<span class='st'>"Oakland Police Department"</span>)
+</div><div class='output co'>#&gt;             ori               agency_name agency_type_name   state_name
 #&gt; 905   CA0010900 Oakland Police Department             City   California
 #&gt; 2506  FL0480800 Oakland Police Department             City      Florida
 #&gt; 6607  MD0120200 Oakland Police Department             City     Maryland
@@ -170,7 +176,8 @@ uses `grep()` to find agencies with similar names to inputted agency.</p></td>
 #&gt; 8433  38.602047  -90.35826             NULL
 #&gt; 10049 40.959648  -74.07486             NULL
 #&gt; 14116  41.95525  -75.60348             NULL
-#&gt; 15139 35.196993 -89.413803       07/01/1999</div><div class='input'><span class='fu'>get_agency_info</span>(<span class='st'>"Oakland Police Department"</span>, <span class='kw'>state</span> <span class='kw'>=</span> <span class='st'>"california"</span>)</div><div class='output co'>#&gt;           ori               agency_name agency_type_name state_name state_abbr
+#&gt; 15139 35.196993 -89.413803       07/01/1999</div><div class='input'><span class='fu'>get_agency_info</span>(<span class='st'>"Oakland Police Department"</span>, state = <span class='st'>"california"</span>)
+</div><div class='output co'>#&gt;           ori               agency_name agency_type_name state_name state_abbr
 #&gt; 905 CA0010900 Oakland Police Department             City California         CA
 #&gt;     division_name region_name region_desc county_name nibrs latitude  longitude
 #&gt; 905       Pacific        West   Region IV     ALAMEDA FALSE 37.79965 -122.27459
@@ -191,7 +198,7 @@ uses `grep()` to find agencies with similar names to inputted agency.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

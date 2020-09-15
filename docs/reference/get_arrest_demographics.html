@@ -92,7 +92,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/jacobkap/fbi/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -107,7 +112,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get arrest data by arrestee demographic from the UCR's Arrests by Age, Sex, and Race data set.</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/jacobkap/fbi/blob/master/R/ucr_arrest.R'><code>R/ucr_arrest.R</code></a></small>
     <div class="hidden name"><code>get_arrest_demographics.Rd</code></div>
     </div>
 
@@ -116,11 +121,11 @@
     </div>
 
     <pre class="usage"><span class='fu'>get_arrest_demographics</span>(
-  <span class='kw'>ori</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>region</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>offense</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
-  <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>()
+  ori = <span class='kw'>NULL</span>,
+  state_abb = <span class='kw'>NULL</span>,
+  region = <span class='kw'>NULL</span>,
+  offense = <span class='st'>"all"</span>,
+  key = <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>()
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -155,10 +160,11 @@ input is 'all' (default), returns data for all offenses. Please run `list_ucr_ar
     <p>A data.frame with the number of arrests by arrestee demographic for each crime-year in the jurisdiction.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>get_arrest_demographics</span>(<span class='kw'>ori</span> <span class='kw'>=</span> <span class='st'>"CA0010900"</span>, <span class='kw'>offense</span> <span class='kw'>=</span> <span class='st'>"robbery"</span>)
-<span class='fu'>get_arrest_demographics</span>(<span class='kw'>offense</span> <span class='kw'>=</span> <span class='st'>"robbery"</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'>get_arrest_demographics</span>(ori = <span class='st'>"CA0010900"</span>, offense = <span class='st'>"robbery"</span>)
+<span class='fu'>get_arrest_demographics</span>(offense = <span class='st'>"robbery"</span>)
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -174,7 +180,7 @@ input is 'all' (default), returns data for all offenses. Please run `list_ucr_ar
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -92,7 +92,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/jacobkap/fbi/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -107,7 +112,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get agency-, state-, region-, or national-level police staffing data.</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/jacobkap/fbi/blob/master/R/ucr_police_employment.R'><code>R/ucr_police_employment.R</code></a></small>
     <div class="hidden name"><code>get_police_employment.Rd</code></div>
     </div>
 
@@ -116,10 +121,10 @@
     </div>
 
     <pre class="usage"><span class='fu'>get_police_employment</span>(
-  <span class='kw'>ori</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>region</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>()
+  ori = <span class='kw'>NULL</span>,
+  state_abb = <span class='kw'>NULL</span>,
+  region = <span class='kw'>NULL</span>,
+  key = <span class='fu'><a href='get_api_key.html'>get_api_key</a></span>()
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -149,16 +154,17 @@ If NULL (default) returns national data. If `state_abb` and `region` both have v
     <p>A data.frame with columns for annual number of employees and officers (also broken up by gender).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># Gets only Oakland Police Department in California</span>
 <span class='fu'>get_police_employment</span>(<span class='st'>"CA0010900"</span>)
 
 <span class='co'># Gets California state-level estimates</span>
-<span class='fu'>get_police_employment</span>(<span class='kw'>state_abb</span> <span class='kw'>=</span> <span class='st'>"CA"</span>)
+<span class='fu'>get_police_employment</span>(state_abb = <span class='st'>"CA"</span>)
 
 <span class='co'># Gets national-level estimates</span>
 <span class='fu'>get_police_employment</span>()
-}</div></pre>
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -174,7 +180,7 @@ If NULL (default) returns national data. If `state_abb` and `region` both have v
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

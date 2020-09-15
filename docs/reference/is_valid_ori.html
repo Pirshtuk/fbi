@@ -93,7 +93,12 @@ is valid for the API." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/jacobkap/fbi/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -108,7 +113,7 @@ is valid for the API." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Checks if the ORI is valid</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/jacobkap/fbi/blob/master/R/lookups.R'><code>R/lookups.R</code></a></small>
     <div class="hidden name"><code>is_valid_ori.Rd</code></div>
     </div>
 
@@ -117,7 +122,7 @@ is valid for the API." />
 is valid for the API.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>is_valid_ori</span>(<span class='no'>ori</span>)</pre>
+    <pre class="usage"><span class='fu'>is_valid_ori</span>(<span class='kw'>ori</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -135,8 +140,10 @@ for each ori.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># ORI for Oakland Police Deparment in California</span>
-<span class='fu'>is_valid_ori</span>(<span class='st'>"CA0010900"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='co'># Incorrect ori</span>
-<span class='fu'>is_valid_ori</span>(<span class='st'>"abc123"</span>)</div><div class='output co'>#&gt; [1] FALSE</div></pre>
+<span class='fu'>is_valid_ori</span>(<span class='st'>"CA0010900"</span>)
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='co'># Incorrect ori</span>
+<span class='fu'>is_valid_ori</span>(<span class='st'>"abc123"</span>)
+</div><div class='output co'>#&gt; [1] FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -152,7 +159,7 @@ for each ori.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
