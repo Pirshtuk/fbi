@@ -6,18 +6,11 @@ get_nibrs <- function(ori="CA0160000",
                       from=1985,
                       to=2022,
                       key = get_api_key()) {
-  # browser()
   api_url <- glue::glue(
     "https://api.usa.gov/crime/fbi/cde/nibrs/agency/{ori}/{offense}/{category}/{type}?from={from}&to={to}&API_KEY={key}")
 
-  # data_type <- paste0(offense, "/", category, "/", type)
-  # url_section <- combine_url_section("nibrs/", ori, state_abb,data_type)
-  # api_url <- paste0("https://api.usa.gov/crime/fbi/cde/",
-  #                   url_section, "/", data_type, "/?api_key=", key)
-
-
-  data <- url_to_dataframe(api_url)
-  data[,`:=`(
+  url_to_dataframe(api_url) |>
+    _[,`:=`(
       state_abb= substr(ori, 1, 2),
       ori=ori,
       offense=offense,
@@ -26,9 +19,6 @@ get_nibrs <- function(ori="CA0160000",
       )] |>
     data.table::setcolorder(c("state_abb","ori","offense","category","type"))
 
-  # data <- clean_column_names(data)
-  # data$offense <- offense
-  return(data)
 }
 
 #' Gets victim-level data from the FBI's National Incident-Based Reporting System (NIBRS)
