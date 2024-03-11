@@ -18,6 +18,7 @@ read.csv_system_file <- function(file) {
 }
 
 clean_column_names <- function(.data) {
+  browser()
   names(.data) <- tolower(names(.data))
   names(.data) <- gsub("-", "_", names(.data))
   names(.data) <- gsub("^data_year$", "year", names(.data))
@@ -51,7 +52,7 @@ clean_column_names <- function(.data) {
 }
 
 
-url_to_dataframe <- function(url) {
+url_to_dataframe0 <- function(url) {
   useragent <- paste0(
     "Mozilla/5.0 (compatible; a bot using the R fbi",
     " package; https://github.com/jacobkap/fbi/)")
@@ -59,12 +60,21 @@ url_to_dataframe <- function(url) {
   response <- httr::GET(url = url,
                         httr::user_agent(useragent))
 
-
+  browser()
   if (response$status_code %in% 200) {
     response <- jsonlite::fromJSON(rawToChar(response$content))
     response <- response$results
   }
   return(response)
+}
+
+url_to_dataframe <- function(url) {
+  jsonlite::read_json(url) |>
+    jsonlite::toJSON() |>
+    jqr::jq("[.title as $title | .data | map( {title: $title}+.)]") |>
+    jsonlite::fromJSON() |>
+    data.table::as.data.table() |>
+    _[,lapply(.SD,unlist)]
 }
 
 

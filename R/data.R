@@ -168,7 +168,7 @@ regions <- c("U.S. Territories",
 #'
 #'
 #' @format A vector with 5 elements:
-#' @source \url{https://crime-data-explorer.fr.cloud.gov/api}
+#' @source \url{https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi}
 "nibrs_offender_variables"
 
 #' All available variables for NIBRS offense data.
@@ -178,7 +178,7 @@ regions <- c("U.S. Territories",
 #' with all possible variables.
 #'
 #' @format A vector with 8 elements:
-#' @source \url{https://crime-data-explorer.fr.cloud.gov/api}
+#' @source \url{https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi}
 "nibrs_offense_variables"
 
 #' All offenses available to get NIBRS data for.
@@ -187,7 +187,7 @@ regions <- c("U.S. Territories",
 #' for the NIBRS data functions.
 #'
 #' @format A vector with 72 elements:
-#' @source \url{https://crime-data-explorer.fr.cloud.gov/api}
+#' @source \url{https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi}
 "nibrs_offenses"
 
 #' All available variables for NIBRS victim data.
@@ -197,7 +197,7 @@ regions <- c("U.S. Territories",
 #' with all possible variables.
 #'
 #' @format A vector with 7 elements:
-#' @source \url{https://crime-data-explorer.fr.cloud.gov/api}
+#' @source \url{https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi}
 "nibrs_victim_variables"
 
 #' Regions available to get estimated UCR and NIBRS data for.
@@ -207,7 +207,7 @@ regions <- c("U.S. Territories",
 #' of strings for the six regions available.
 #'
 #' @format A vector with 6 elements:
-#' @source \url{https://crime-data-explorer.fr.cloud.gov/api}
+#' @source \url{https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi}
 "regions"
 
 #' All offenses available to get NIBRS data for.
@@ -216,7 +216,7 @@ regions <- c("U.S. Territories",
 #' to get arrest data for from the `get_arrest_demographics()` function.
 #'
 #' @format A vector with 47 elements:
-#' @source \url{https://crime-data-explorer.fr.cloud.gov/api}
+#' @source \url{https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi}
 "ucr_arrest_offenses"
 
 
@@ -243,5 +243,5 @@ regions <- c("U.S. Territories",
 #'   the agency does not report to NIBRS}
 #'
 #' }
-#' @source \url{https://crime-data-explorer.fr.cloud.gov/api}
+#' @source \url{https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi}
 "fbi_api_agencies"

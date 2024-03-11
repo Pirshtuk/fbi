@@ -1,20 +1,33 @@
-get_nibrs <- function(key = get_api_key(),
-                      offense,
-                      variable,
-                      ori,
-                      region_name,
-                      state_abb,
-                      type) {
+get_nibrs <- function(ori="CA0160000",
+                      # state_abb,
+                      offense="robbery",
+                      category="victim",
+                      type="count",
+                      from=1985,
+                      to=2022,
+                      key = get_api_key()) {
+  # browser()
+  api_url <- glue::glue(
+    "https://api.usa.gov/crime/fbi/cde/nibrs/agency/{ori}/{offense}/{category}/{type}?from={from}&to={to}&API_KEY={key}")
 
-  data_type <- paste0("data/nibrs/", offense, "/", type)
-  url_section <- combine_url_section(data_type, ori, region_name, state_abb)
-  api_url <- paste0("https://api.usa.gov/crime/fbi/cde/",
-                    url_section, "/", variable, "/?api_key=", key)
+  # data_type <- paste0(offense, "/", category, "/", type)
+  # url_section <- combine_url_section("nibrs/", ori, state_abb,data_type)
+  # api_url <- paste0("https://api.usa.gov/crime/fbi/cde/",
+  #                   url_section, "/", data_type, "/?api_key=", key)
 
 
   data <- url_to_dataframe(api_url)
-  data <- clean_column_names(data)
-  data$offense <- offense
+  data[,`:=`(
+      state_abb= substr(ori, 1, 2),
+      ori=ori,
+      offense=offense,
+      category=category,
+      type=type
+      )] |>
+    data.table::setcolorder(c("state_abb","ori","offense","category","type"))
+
+  # data <- clean_column_names(data)
+  # data$offense <- offense
   return(data)
 }
 
@@ -38,20 +51,23 @@ get_nibrs <- function(key = get_api_key(),
 #' \dontrun{
 #' get_nibrs_victim(ori = "DE0010100")
 #' }
-get_nibrs_victim <- function(key = get_api_key(),
-                             offense     = "robbery",
-                             variable    = "race",
-                             ori         = NULL,
-                             region      = NULL,
-                             state_abb   = NULL) {
-
-  data <- get_nibrs(key         = key,
+get_nibrs_victim <- function(ori="CA0160000",
+                             # state_abb,
+                             offense="robbery",
+                             # category="victim",
+                             type="count",
+                             from=1985,
+                             to =2022,
+                             key = get_api_key()) {
+  # browser()
+  data <- get_nibrs(ori         = ori,
                     offense     = offense,
-                    variable    = variable,
-                    ori         = ori,
-                    region_name = region,
-                    state_abb   = state_abb,
-                    type        = "victim")
+                    category    = "victim",
+                    type        = type,
+                    from        = from,
+                    to          = to,
+                    key         = key
+                    )
 
   return(data)
 }
