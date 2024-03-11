@@ -28,5 +28,5 @@ Imports:
     data.table,
     datasets,
     utils
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.0
 Language: en-US

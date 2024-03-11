@@ -18,7 +18,6 @@ get_nibrs <- function(ori="CA0160000",
       type=type
       )] |>
     data.table::setcolorder(c("state_abb","ori","offense","category","type"))
-
 }
 
 #' Gets victim-level data from the FBI's National Incident-Based Reporting System (NIBRS)
@@ -60,6 +59,49 @@ get_nibrs_victim <- function(ori="CA0160000",
                     )
 
   return(data)
+}
+
+#' Title
+#'
+#' @param ori
+#' desc
+#' @param from
+#' desc
+#' @param to
+#' desc
+#' @param key
+#' desc
+#'
+#' @return
+#' desc
+#' @export
+#'
+#' @examples
+#' desc
+get_nibrs_victim_offences <- function(ori ="CA0160000",
+                                      from=1985,
+                                      to  =2022,
+                                      key = get_api_key()) {
+  type <- "count"
+  # Assuming list_nibrs_offenses returns a list of offenses
+  offenses_list <- list_nibrs_offenses()
+
+  # purrr::map( list_nibrs_offenses(),get_nibrs_victim,...)
+  # Use purrr::map to iterate over offenses and apply get_nibrs_victim for each one,
+  # forwarding the additional arguments using ...
+  # results <- purrr::map(offenses_list, ~get_nibrs_victim(offense = .x, ...))
+  results <- purrr::map(offenses_list, ~get_nibrs_victim(
+    ori         = ori,
+    offense     = .x,
+    type        = type,
+    from        = from,
+    to          = to,
+    key         = key
+    )
+    ) |>
+  data.table::rbindlist(fill = TRUE)
+
+  return(results)
 }
 
 #' Gets offender-level data from the FBI's National Incident-Based Reporting System (NIBRS)
@@ -142,7 +184,12 @@ get_nibrs_offense <- function(key = get_api_key(),
 #' @examples
 #' list_nibrs_offenses()
 list_nibrs_offenses <- function() {
-  return(fbi::nibrs_offenses)
+  return(
+    # fbi::nibrs_offenses
+    # offenses:
+    # c("violent crime", "aggravated-assault", "burglary","larceny","motor", "theft","homicide","rape","robbery","arson","property crime")
+    c("violent-crime", "aggravated-assault", "burglary","larceny","motor-vehicle-theft","homicide","rape","robbery","arson","property-crime")
+    )
 }
 
 

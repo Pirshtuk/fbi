@@ -245,3 +245,17 @@ regions <- c("U.S. Territories",
 #' }
 #' @source \url{https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi}
 "fbi_api_agencies"
+
+
+#' cde_agency
+#'
+#' A brief description of my dataset.
+#'
+#' @format A data frame with x rows and y columns:
+#' \describe{
+#'   \item{column1}{Description of column1.}
+#'   \item{column2}{Description of column2.}
+#'   ...
+#' }
+#' @source Describe the source of your data here, if applicable.
+"cde_agency"

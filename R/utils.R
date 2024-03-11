@@ -69,6 +69,7 @@ url_to_dataframe0 <- function(url) {
 }
 
 url_to_dataframe <- function(url) {
+  browser()
   jsonlite::read_json(url) |>
     jsonlite::toJSON() |>
     jqr::jq("[.title as $title | .data | map( {title: $title}+.)]") |>

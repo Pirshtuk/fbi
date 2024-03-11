@@ -42,3 +42,12 @@ library(fbi)
 set_api_key("mUQh9fVURLL6ljCYH4aZpqjMRyQ0syncrd5LGgNh")
 get_nibrs("CA0160000")
 ```
+
+## Develop
+
+```{r}
+usethis::use_data(cde_agency, overwrite = TRUE)
+usethis::use_package("data.table")
+devtools::document()
+
+```

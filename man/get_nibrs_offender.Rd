@@ -22,11 +22,6 @@ input is 'all' (default), returns data for all offenses. Please run `list_nibrs_
 \item{variable}{A string with the variable you want the data to be in. This is essentially the units you want returned (number of offenders by age, race, sex, etc.). By default returns total count of offenders Please run `list_nibrs_offender_variables()`  to see all possible variables.}
 
 \item{ori}{A string or vector of strings of the 9-character ORI code (unique agency ID) for the desired agency.}
-
-\item{region}{String or vector of strings input for region name(s) to get data for. Please run `list_regions()`  to see all possible variables.}
-
-\item{state_abb}{String or vector of strings input for state abbreviation(s) to get data for.
-If NULL (default) returns national data. If `state_abb` and `region` both have values, will use return `region` input data.}
 }
 \value{
 A data.frame of NIBRS offender data.
