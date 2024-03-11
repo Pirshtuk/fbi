@@ -15,14 +15,14 @@
 #' get_agency_crime("AK0010100")
 #' }
 get_agency_crime <- function(ori,
-                             key = get_api_key()) {
+                             key = get_api_key(),finish_year=2022) {
 
-  url <- paste0("https://api.usa.gov/crime/fbi/sapi/",
+  url <- paste0("https://api.usa.gov/crime/fbi/",
                 "api/summarized/agencies/",
                 ori, "/",
                 "offenses/",
                 1985, "/",
-                2018,
+                finish_year,
                 "?api_key=",
                 key)
 
