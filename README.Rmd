@@ -31,7 +31,6 @@ You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("pirshtuk/fbi")
 devtools::install_github("pirshtuk/fbi",force = TRUE)
 ```
 
@@ -39,4 +38,7 @@ devtools::install_github("pirshtuk/fbi",force = TRUE)
 
 ```{r example}
 library(fbi)
+
+set_api_key("mUQh9fVURLL6ljCYH4aZpqjMRyQ0syncrd5LGgNh")
+get_nibrs("CA0160000")
 ```

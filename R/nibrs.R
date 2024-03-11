@@ -8,7 +8,7 @@ get_nibrs <- function(key = get_api_key(),
 
   data_type <- paste0("data/nibrs/", offense, "/", type)
   url_section <- combine_url_section(data_type, ori, region_name, state_abb)
-  api_url <- paste0("https://api.usa.gov/crime/fbi/api/",
+  api_url <- paste0("https://api.usa.gov/crime/fbi/cde/",
                     url_section, "/", variable, "/?api_key=", key)
 
 

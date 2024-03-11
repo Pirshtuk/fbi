@@ -130,7 +130,7 @@ make_url <- function(url_section,
                      finish_year=2022,
                      key) {
 
-  url <- paste0("https://api.usa.gov/crime/fbi/api/",
+  url <- paste0("https://api.usa.gov/crime/fbi/cde/",
                 url_section,
                 "/",
                 start_year,
